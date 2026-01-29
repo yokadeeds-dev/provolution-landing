@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROVOLUTION - Rette das Klima. Spiele mit.</title>
+    <meta name="description" content="Verwandle deine Ideen in messbare Klimawirkung. Mit Wissenschaft, Gamification und einer Community, die wirklich etwas bewegt.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://provolution.org/">
+    <meta property="og:title" content="PROVOLUTION - Rette das Klima. Spiele mit.">
+    <meta property="og:description" content="Verwandle deine Ideen in messbare Klimawirkung. 30 validierte Lösungen, 50.7 Gt CO₂ Potenzial, 100% Open Source.">
+    <meta property="og:image" content="https://provolution.org/favicon.svg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://provolution.org/">
+    <meta property="twitter:title" content="PROVOLUTION - Rette das Klima. Spiele mit.">
+    <meta property="twitter:description" content="Verwandle deine Ideen in messbare Klimawirkung. 30 validierte Lösungen, 50.7 Gt CO₂ Potenzial, 100% Open Source.">
+    <meta property="twitter:image" content="https://provolution.org/favicon.svg">
+    
+    <!-- Additional SEO -->
+    <meta name="keywords" content="Klimaschutz, Gamification, Open Source, CO2 Reduktion, Citizen Science, SEC Framework, Klimawandel">
+    <meta name="author" content="PROVOLUTION">
+    <link rel="canonical" href="https://provolution.org/">
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #F5F5F5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #0D5C3D;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #00A8E8;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #0D5C3D, #00A8E8);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,168,232,0.3);
+        }
+        
+        /* SOCIAL PROOF STRIP */
+        .social-proof {
+            background: linear-gradient(90deg, #0D5C3D, #00A8E8);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+        .social-proof .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #0D5C3D 0%, #00A8E8 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+        
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #0D5C3D;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #0D5C3D;
+        }
+        
+        /* VALUE PROPS */
+        .value-props {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 800;
+            color: #0D5C3D;
+            margin-bottom: 60px;
+        }
+        
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .value-card {
+            background: #F5F5F5;
+            padding: 40px;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .value-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .value-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #0D5C3D;
+        }
+        
+        .value-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .value-features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .value-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        /* HOW IT WORKS */
+        .how-it-works {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #F5F5F5, #E8F5F3);
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            background: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .step-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        
+        .step h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #0D5C3D;
+        }
+        
+        /* CHALLENGES SECTION */
+        .challenges {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #E8F5F3, #F5F5F5);
+        }
+        
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .challenge-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .challenge-card.active {
+            border: 2px solid #00A8E8;
+        }
+        
+        .challenge-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #FF6B35, #FF8C42);
+            color: white;
+        }
+        
+        .challenge-badge.upcoming {
+            background: linear-gradient(135deg, #00A8E8, #0D5C3D);
+        }
+        
+        .challenge-badge.completed {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+        }
+        
+        .challenge-card h3 {
+            color: #0D5C3D;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .challenge-progress {
+            margin: 20px 0;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #E0E0E0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00A8E8, #0D5C3D);
+            transition: width 0.5s ease;
+            animation: progress-animation 2s ease-in-out;
+        }
+        
+        @keyframes progress-animation {
+            from { width: 0; }
+        }
+        
+        .challenge-progress span {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .challenge-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .challenge-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .challenge-cta {
+            display: inline-block;
+            background: linear-gradient(135deg, #0D5C3D, #00A8E8);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 10px;
+        }
+        
+        .challenge-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,168,232,0.3);
+        }
+
+        /* APPLICATIONS SHOWCASE */
+        .applications {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .app-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .app-card {
+            background: #F5F5F5;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .app-thumbnail {
+            height: 200px;
+            background: linear-gradient(135deg, #0D5C3D, #00A8E8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+        
+        .app-content {
+            padding: 25px;
+        }
+        
+        .app-tag {
+            display: inline-block;
+            background: #00A8E8;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .app-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #0D5C3D;
+        }
+        
+        .app-potential {
+            font-size: 14px;
+            color: #FF6B35;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0D5C3D, #00A8E8);
+            color: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .testimonial {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .testimonial-quote {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        /* TECHNOLOGY SECTION */
+        .technology {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .tech-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .tech-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .tech-feature {
+            background: #F5F5F5;
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        .tech-feature h4 {
+            color: #0D5C3D;
+            margin-bottom: 10px;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 80px 0;
+            background: #F5F5F5;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            font-weight: 700;
+            color: #0D5C3D;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .faq-answer {
+            color: #666;
+        }
+        
+        /* FINAL CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #00A8E8, #0D5C3D);
+            color: white;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #0D5C3D;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            opacity: 0.7;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        .newsletter-form button {
+            background: #00A8E8;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background: #0088C0;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #00A8E8;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .btn-primary, .btn-secondary, .cta-button, .challenge-cta {
+                min-height: 44px;
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+            
+            .challenge-grid, .app-carousel, .value-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links a {
+                width: 44px;
+                height: 44px;
+                line-height: 44px;
+            }
+            
+            .challenges-stats {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            .leaderboard-widget {
+                margin: 30px 15px !important;
+                padding: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="logo">PROVOLUTION</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#how-it-works">So funktioniert's</a></li>
+                <li><a href="#challenges">Challenges</a></li>
+                <li><a href="#applications">30 Anwendungen</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#docs">Dokumentation</a></li>
+            </ul>
+            <a href="#" class="cta-button">Mitmachen</a>
+        </div>
+    </nav>
+
+    <!-- SOCIAL PROOF STRIP -->
+    <div class="social-proof">
+        <div class="container">
+            <div class="proof-item">✓ 30 validierte Klimalösungen</div>
+            <div class="proof-item">✓ 50,7 Gt CO₂ Reduktionspotenzial</div>
+            <div class="proof-item">✓ Wissenschaftlich fundiert (180+ Studien)</div>
+            <div class="proof-item">✓ 100% Open Source</div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Wir haben noch 5 Jahre. Lass sie zählen.</h1>
+            <p>50.7 Gt CO₂/Jahr – genug um Kipppunkte zu verhindern. 30 validierte Lösungen. Eine Community. Dein Move.</p>
+            <div class="hero-ctas">
+                <a href="https://huggingface.co/spaces/YokaYY/provolution-interface" class="btn-primary">Jetzt kostenlos mitmachen</a>
+                <a href="https://youtu.be/demo-provolution" class="btn-secondary">2-Min Demo ansehen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUE PROPOSITIONS -->
+    <section class="value-props">
+        <div class="container">
+            <h2 class="section-title">Warum Provolution anders ist</h2>
+            <div class="value-grid">
+                <!-- Value 1 -->
+                <div class="value-card">
+                    <div class="value-icon">🧪</div>
+                    <h3>Wissenschaftliche Strenge</h3>
+                    <p>Nicht nur gut gemeint – messbar wirksam</p>
+                    <p style="margin-top: 15px;">Jede Idee wird durch unser SEC-Framework (Sufficiency, Efficiency, Consistency) evaluiert. Keine Greenwashing-Punkte, keine Feel-Good-Metriken. Nur echte CO₂-Reduktion, validiert durch peer-reviewed Methodik.</p>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="value-card">
+                    <div class="value-icon">🎮</div>
+                    <h3>Addictive Gamification</h3>
+                    <p>Klimaschutz, der süchtig macht</p>
+                    <ul class="value-features">
+                        <li>XP für validierte Lösungen</li>
+                        <li>Achievements freisp ielen</li>
+                        <li>Community Challenges</li>
+                        <li>Global Leaderboards</li>
+                    </ul>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3>Echter Impact</h3>
+                    <p>Von Idee zu Implementation</p>
+                    <ul class="value-features">
+                        <li>92% globaler Emissionen</li>
+                        <li>8 Sektoren abgedeckt</li>
+                        <li>Implementation Guides</li>
+                        <li>180+ validierte Cases</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">So funktioniert's – In 3 Schritten zum Klimaheld</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">💭</div>
+                    <h3>Idee einreichen</h3>
+                    <p>Hast du eine Idee für Klimaschutz? Egal ob groß oder klein – submit sie! Unser Interface führt dich durch die Bewertungskriterien.</p>
+                    <p style="margin-top: 15px; font-style: italic; font-size: 14px;">Beispiel: "Carsharing-Pflicht in Neubaugebieten" → Sufficiency-Check</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">🔍</div>
+                    <h3>Community evaluiert</h3>
+                    <p>Die Community diskutiert, verfeinert und bewertet deine Idee nach SEC-Kriterien. Transparenter Peer-Review-Prozess mit konstruktivem Feedback.</p>
+                    <p style="margin-top: 15px; font-style: italic; font-size: 14px;">SEC-Score-Evolution: 6/10 → 8/10 durch Community-Input</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-icon">📈</div>
+                    <h3>Impact tracken & leveln</h3>
+                    <p>Sehe deinen Beitrag zum globalen Klimaschutz in Echtzeit. Sammle XP, steige in Levels auf und inspiriere andere mit deinen Erfolgen.</p>
+                    <p style="margin-top: 15px; font-style: italic; font-size: 14px;">"+500 XP | Achievement unlocked: First Implementer"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHALLENGES SECTION -->
+    <section class="challenges" id="challenges">
+        <div class="container">
+            <h2 class="section-title">🏆 Aktuelle Community-Challenges</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; font-size: 18px; color: #666;">
+                Nimm an zeitlich begrenzten Challenges teil, sammle Bonus-XP und bewirke echten Impact mit der Community!
+            </p>
+            
+            <div class="challenge-grid">
+                <!-- Challenge 1: AKTIV - Standby-Killer -->
+                <div class="challenge-card active">
+                    <div class="challenge-badge">🔥 LÄUFT JETZT</div>
+                    <h3>⚡ Standby-Killer Challenge</h3>
+                    <div class="challenge-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 72%"></div>
+                        </div>
+                        <span>847 / 1000 Teilnehmer</span>
+                    </div>
+                    <p>Schalte alle Geräte nachts komplett aus (Steckerleiste) - 14 Tage lang. Spare ~100 kg CO₂/Jahr und verdiene das "Strom-Ninja" Badge!</p>
+                    <div class="challenge-meta">
+                        <span>⏰ 14 Tage</span>
+                        <span>🎁 +150 XP</span>
+                        <span>🌍 ~100 kg CO₂/Jahr</span>
+                    </div>
+                    <a href="#" class="challenge-cta">Jetzt teilnehmen →</a>
+                </div>
+
+                <!-- Challenge 2: AKTIV - Fahrrad-Pendler -->
+                <div class="challenge-card active">
+                    <div class="challenge-badge">🔥 BELIEBT</div>
+                    <h3>🚲 Fahrrad-Pendler</h3>
+                    <div class="challenge-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 58%"></div>
+                        </div>
+                        <span>582 / 1000 aktiv</span>
+                    </div>
+                    <p>Ersetze 3 Arbeitswege pro Woche durch Fahrrad oder ÖPNV - 4 Wochen lang. Werde zum "Pedalritter" und spare 400 kg CO₂!</p>
+                    <div class="challenge-meta">
+                        <span>⏰ 4 Wochen</span>
+                        <span>🎁 +300 XP</span>
+                        <span>🌍 ~400 kg CO₂/Jahr</span>
+                    </div>
+                    <a href="#" class="challenge-cta">Jetzt teilnehmen →</a>
+                </div>
+
+                <!-- Challenge 3: NEU - Heiz-Held -->
+                <div class="challenge-card">
+                    <div class="challenge-badge upcoming">🆕 NEU</div>
+                    <h3>🌡️ Heiz-Held</h3>
+                    <p>Senke die Raumtemperatur um 1°C und spare 6% Heizkosten! Tracke 30 Tage lang und werde "Wärme-Optimierer".</p>
+                    <div class="challenge-meta">
+                        <span>⏰ 30 Tage</span>
+                        <span>🎁 +300 XP</span>
+                        <span>🌍 ~300 kg CO₂/Jahr</span>
+                    </div>
+                    <a href="#" class="challenge-cta">Challenge starten →</a>
+                </div>
+
+                <!-- Challenge 4: Community -->
+                <div class="challenge-card">
+                    <div class="challenge-badge" style="background: linear-gradient(135deg, #9333EA, #7C3AED);">👥 COMMUNITY</div>
+                    <h3>👵 Oma-Retrofit</h3>
+                    <p>Hilf einem älteren Menschen bei Energiespar-Maßnahmen. Generationen verbinden, Klima schützen - werde zur "Generationen-Brücke"!</p>
+                    <div class="challenge-meta">
+                        <span>⏰ 14 Tage</span>
+                        <span>🎁 +300 XP</span>
+                        <span>🌍 ~200 kg CO₂/Jahr</span>
+                    </div>
+                    <a href="#" class="challenge-cta">Challenge starten →</a>
+                </div>
+
+                <!-- Challenge 5: Politik -->
+                <div class="challenge-card">
+                    <div class="challenge-badge" style="background: linear-gradient(135deg, #DC2626, #B91C1C);">🗳️ POLITIK</div>
+                    <h3>📧 Politiker-Ping</h3>
+                    <p>Kontaktiere deinen Wahlkreis-Abgeordneten zu einem Klimathema. Wir helfen mit Vorlagen - werde zum "Druck-Macher"!</p>
+                    <div class="challenge-meta">
+                        <span>⏰ 14 Tage</span>
+                        <span>🎁 +500 XP</span>
+                        <span>🌍 Systemischer Impact</span>
+                    </div>
+                    <a href="#" class="challenge-cta">Challenge starten →</a>
+                </div>
+
+                <!-- Challenge 6: ABGESCHLOSSEN -->
+                <div class="challenge-card">
+                    <div class="challenge-badge completed">✅ ABGESCHLOSSEN</div>
+                    <h3>First Implementer Challenge</h3>
+                    <p>Erste 100 User mit nachweislich implementierter Klimalösung. Ein Meilenstein für die Community!</p>
+                    <div class="challenge-meta">
+                        <span>🏆 Gewinner: @ClimateHeroAlex</span>
+                        <span>💡 127 Lösungen</span>
+                        <span>📊 2.3 Mt CO₂/Jahr</span>
+                    </div>
+                    <a href="#" class="challenge-cta">Ergebnisse ansehen →</a>
+                </div>
+            </div>
+
+            <!-- LEADERBOARD WIDGET -->
+            <div class="leaderboard-widget" style="max-width: 600px; margin: 50px auto; background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                <h3 style="text-align: center; color: #0D5C3D; margin-bottom: 25px;">🏆 Top CO₂-Sparer diese Woche</h3>
+                <div class="leaderboard-list">
+                    <div style="display: flex; align-items: center; padding: 15px; background: linear-gradient(135deg, #FFD70020, #FFD70010); border-radius: 12px; margin-bottom: 10px; border: 1px solid #FFD70050;">
+                        <span style="font-size: 24px; font-weight: 800; color: #FFD700; width: 40px;">1</span>
+                        <span style="font-size: 28px; margin-right: 15px;">🌳</span>
+                        <span style="flex: 1; font-weight: 600; color: #333;">KlimaHeld_NRW</span>
+                        <span style="color: #0D5C3D; font-weight: 700;">847 kg CO₂</span>
+                    </div>
+                    <div style="display: flex; align-items: center; padding: 12px 15px; background: #f8f9fa; border-radius: 12px; margin-bottom: 10px;">
+                        <span style="font-size: 20px; font-weight: 700; color: #C0C0C0; width: 40px;">2</span>
+                        <span style="font-size: 24px; margin-right: 15px;">🌱</span>
+                        <span style="flex: 1; font-weight: 500; color: #333;">GreenWarrior23</span>
+                        <span style="color: #0D5C3D; font-weight: 600;">723 kg CO₂</span>
+                    </div>
+                    <div style="display: flex; align-items: center; padding: 12px 15px; background: #f8f9fa; border-radius: 12px; margin-bottom: 10px;">
+                        <span style="font-size: 20px; font-weight: 700; color: #CD7F32; width: 40px;">3</span>
+                        <span style="font-size: 24px; margin-right: 15px;">🌿</span>
+                        <span style="flex: 1; font-weight: 500; color: #333;">EcoFighter_DE</span>
+                        <span style="color: #0D5C3D; font-weight: 600;">691 kg CO₂</span>
+                    </div>
+                </div>
+                <a href="#" style="display: block; text-align: center; margin-top: 20px; color: #00A8E8; font-weight: 600; text-decoration: none;">Vollständiges Leaderboard ansehen →</a>
+            </div>
+
+            <!-- STATS BAR -->
+            <div class="challenges-stats" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; background: linear-gradient(135deg, #0D5C3D, #00A8E8); border-radius: 20px; padding: 40px; margin-top: 40px;">
+                <div style="text-align: center;">
+                    <span style="display: block; font-size: 2.5rem; font-weight: 800; color: white;">2.847</span>
+                    <span style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Aktive Teilnehmer</span>
+                </div>
+                <div style="text-align: center;">
+                    <span style="display: block; font-size: 2.5rem; font-weight: 800; color: white;">47.293</span>
+                    <span style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Challenges abgeschlossen</span>
+                </div>
+                <div style="text-align: center;">
+                    <span style="display: block; font-size: 2.5rem; font-weight: 800; color: white;">1.2M kg</span>
+                    <span style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">CO₂ vermieden</span>
+                </div>
+                <div style="text-align: center;">
+                    <span style="display: block; font-size: 2.5rem; font-weight: 800; color: white;">€847k</span>
+                    <span style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Geld gespart</span>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <p style="font-size: 16px; color: #666; margin-bottom: 20px;">
+                    💬 Hast du eine Idee für die nächste Challenge? Die Community entscheidet!
+                </p>
+                <a href="#" class="cta-button" style="display: inline-block;">Challenge vorschlagen →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPLICATIONS SHOWCASE -->
+    <section class="applications" id="applications">
+        <div class="container">
+            <h2 class="section-title">30 Lösungen, die funktionieren</h2>
+            <div class="app-carousel">
+                <!-- App 1 -->
+                <div class="app-card">
+                    <div class="app-thumbnail">📊</div>
+                    <div class="app-content">
+                        <span class="app-tag">Governance</span>
+                        <h3>SEC-Priorisierung für Politik</h3>
+                        <div class="app-potential">CO₂-Potenzial: 15.2 Gt/Jahr</div>
+                        <p><strong>Real Case:</strong> Stadt Freiburg priorisierte 47 Klimamaßnahmen mit SEC → 2.3x ROI, -18kt CO₂/Jahr in 14 Monaten statt 36.</p>
+                        <a href="https://github.com/yokadeeds-dev/provolution-landing" style="display: inline-block; margin-top: 15px; color: #00A8E8; font-weight: 600;">Details ansehen →</a>
+                    </div>
+                </div>
+
+                <!-- App 2 -->
+                <div class="app-card">
+                    <div class="app-thumbnail">🏭</div>
+                    <div class="app-content">
+                        <span class="app-tag">Industry</span>
+                        <h3>Industrie 4.0 Effizienz-Booster</h3>
+                        <div class="app-potential">CO₂-Potenzial: 8.7 Gt/Jahr</div>
+                        <p><strong>Bosch Pilot:</strong> KI-Produktionsoptimierung + SEC-Check → -120t CO₂/Jahr, 0% Produktionsverlust, 8.2/10 SEC-Score.</p>
+                        <a href="https://github.com/yokadeeds-dev/provolution-landing" style="display: inline-block; margin-top: 15px; color: #00A8E8; font-weight: 600;">Case Study lesen →</a>
+                    </div>
+                </div>
+
+                <!-- App 3 -->
+                <div class="app-card">
+                    <div class="app-thumbnail">🥗</div>
+                    <div class="app-content">
+                        <span class="app-tag">Food Systems</span>
+                        <h3>Ernährungswende-Simulator</h3>
+                        <div class="app-potential">CO₂-Potenzial: 6.1 Gt/Jahr</div>
+                        <p><strong>ETH Studie:</strong> Plant-based Kantinen-Policy + SEC-Framework → 67% CO₂ ↓, 23% Kosten ↓, 89% Akzeptanz.</p>
+                        <a href="https://github.com/yokadeeds-dev/provolution-landing" style="display: inline-block; margin-top: 15px; color: #00A8E8; font-weight: 600;">Ausprobieren →</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="cta-button" style="display: inline-block;">Alle 30 Anwendungen entdecken →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Was Early Adopter sagen</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="testimonial-quote">
+                        "Unsere Kommune hat durch SEC-Priorisierung 40% Fördergelder gespart. Impact +60% höher als geplant."
+                    </div>
+                    <div class="testimonial-author">— Dr. Lisa Weber, Klimaschutzmanagerin Stadt Freiburg</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-quote">
+                        "3 Monate Provolution, SEC-Score 8.2, -120 Tonnen CO₂ durch Mobilitätswende im Betrieb. Real. Messbar."
+                    </div>
+                    <div class="testimonial-author">— Thomas Klein, Sustainability Lead @ Bosch</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="testimonial-quote">
+                        "Meine Studis nutzen Provolution für Abschlussarbeiten. Gamification + Wissenschaft = perfekte Kombi."
+                    </div>
+                    <div class="testimonial-author">— Prof. Dr. Sarah Chen, TU München, Umweltsystemwissenschaften</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY SECTION -->
+    <section class="technology">
+        <div class="container">
+            <h2 class="section-title">Die Wissenschaft dahinter</h2>
+            <div class="tech-content">
+                <p style="font-size: 18px; margin-bottom: 30px;">
+                    Provolution basiert auf Probatio Systemica – einem rigorosen mathematischen Framework, das Multi-Criteria Decision Analysis (MCDA), System Dynamics und Life Cycle Assessment (LCA) integriert.
+                </p>
+                <div class="tech-features">
+                    <div class="tech-feature">
+                        <h4>SEC-Prinzip</h4>
+                        <p>Sufficiency > Efficiency > Consistency</p>
+                    </div>
+                    <div class="tech-feature">
+                        <h4>Kipppunkt-Prevention</h4>
+                        <p>Fokus auf 1.5°C-Ziel</p>
+                    </div>
+                    <div class="tech-feature">
+                        <h4>Empirische Validierung</h4>
+                        <p>0.94 Korrelation mit Praxis</p>
+                    </div>
+                    <div class="tech-feature">
+                        <h4>5 Wissenschaftliche Bände</h4>
+                        <p>~6000 Seiten Dokumentation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Häufige Fragen</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Ist Provolution kostenlos?</div>
+                    <div class="faq-answer">Ja, 100%. Citizen Science Interface, alle Tools, alle Daten. Open Source forever.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Brauche ich wissenschaftlichen Hintergrund?</div>
+                    <div class="faq-answer">Nein! Das Interface führt dich durch die Bewertung. Du lernst die Methodik durchs Mitmachen.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Wie wird Impact gemessen?</div>
+                    <div class="faq-answer">SEC-Score (0-10), CO₂-Reduktionspotenzial (Gt/Jahr) und Implementierungs-Feasibility. Alles transparent dokumentiert.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Kann ich meine eigenen Projekte bewerten?</div>
+                    <div class="faq-answer">Absolut! Submit dein Projekt, hole dir Community-Feedback und optimiere mit SEC-Insights.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Was passiert mit meinen eingereichten Ideen?</div>
+                    <div class="faq-answer">Sie werden (mit deiner Zustimmung) Teil der offenen Datenbank. Lizenzen: CC BY-SA 4.0. Du behältst Attribution.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Wie unterscheidet ihr euch von anderen Klimaplattformen?</div>
+                    <div class="faq-answer">Wissenschaftliche Rigorosität + Gamification + Open Source. Keine andere Plattform kombiniert das.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Bereit, Klimageschichte zu schreiben?</h2>
+            <p>Schließe dich der Bewegung an. Verwandle deine Ideen in Impact. Spiele das wichtigste Spiel des Jahrhunderts.</p>
+            <div class="hero-ctas">
+                <a href="#" class="btn-primary">Jetzt kostenlos starten</a>
+                <a href="#" class="btn-secondary">Demo-Video ansehen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Newsletter -->
+                <div class="footer-section">
+                    <h4>Bleib auf dem Laufenden</h4>
+                    <p style="opacity: 0.8; margin-bottom: 15px;">Neue Features, Community-Highlights, Impact-Reports</p>
+                    <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="newsletter">
+                        <input type="email" name="email" placeholder="Deine Email" required>
+                        <button type="submit">Abonnieren</button>
+                    </form>
+                </div>
+
+                <!-- Navigation -->
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">30 Anwendungen</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Dokumentation</a></li>
+                        <li><a href="#">Über uns</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="footer-section">
+                    <h4>Legal & Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#">Nutzungsbedingungen</a></li>
+                        <li><a href="#">Open Source Lizenzen</a></li>
+                        <li><a href="#">Kontakt / Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <div class="social-links">
+                        <a href="https://twitter.com/provolution" title="Twitter/X">𝕏</a>
+                        <a href="https://linkedin.com/company/provolution" title="LinkedIn">in</a>
+                        <a href="https://github.com/yokadeeds-dev/provolution-landing" title="GitHub">🐙</a>
+                        <a href="https://youtube.com/@provolution" title="YouTube">▶</a>
+                        <a href="https://discord.gg/provolution" title="Discord">💬</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p><strong>"Climate Action, Gamified. Science, Democratized. Impact, Maximized."</strong></p>
+                <p style="margin-top: 10px;">© 2025 PROVOLUTION | Built with ❤️ and 🧪 for a future that works.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
