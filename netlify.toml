@@ -1,0 +1,73 @@
+# Netlify Configuration for Provolution Landing Page
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # No build command needed for static HTML
+  publish = "."
+  
+[build.environment]
+  # Environment variables (if needed later)
+  
+[[redirects]]
+  # Redirect www to non-www
+  from = "https://www.provolution.org/*"
+  to = "https://provolution.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  # Redirect HTTP to HTTPS
+  from = "http://provolution.org/*"
+  to = "https://provolution.org/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  # Security headers for all pages
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    # Content Security Policy (strict but functional)
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self';"
+
+[[headers]]
+  # Cache static assets for 1 year
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  # HTML pages: cache for 1 hour, revalidate
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Custom 404 page (create later)
+# [[redirects]]
+#   from = "/*"
+#   to = "/404.html"
+#   status = 404
+
+# Form submissions (for newsletter - activate later)
+# [[forms]]
+#   name = "newsletter"
+#   action = "/success"
