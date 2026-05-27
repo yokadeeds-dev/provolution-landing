@@ -179,14 +179,28 @@ tbody tr:hover {
 }
 
 .brand {
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
   color: var(--fg);
   text-decoration: none;
+  line-height: 1;
 }
 
 .brand:hover { color: var(--fg); }
+
+.wordmark {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+.wordmark .wordmark-accent {
+  stroke: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .wordmark { height: 22px; }
+}
 
 .main-nav {
   display: flex;
