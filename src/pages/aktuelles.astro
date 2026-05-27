@@ -25,10 +25,11 @@ const entries = [
   </section>
 
   <div class="wrap">
+    <h2 class="visually-hidden">Mitteilungen</h2>
     {entries.map(e => (
-      <article class="entry">
+      <article class="entry" aria-labelledby={`entry-${e.date.replace(/\W+/g, '-')}-${e.title.slice(0, 20).replace(/\W+/g, '-')}`}>
         <span class="date">{e.date}</span>
-        <h3>{e.title}</h3>
+        <h3 id={`entry-${e.date.replace(/\W+/g, '-')}-${e.title.slice(0, 20).replace(/\W+/g, '-')}`}>{e.title}</h3>
         <p>{e.body}</p>
         {e.link && <p><a href={e.link.href} rel="noopener" target="_blank">{e.link.label} &rarr;</a></p>}
       </article>

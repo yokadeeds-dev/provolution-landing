@@ -22,6 +22,52 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Visuell ausgeblendet, aber für Screen-Reader sichtbar */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip-Link: visuell ausgeblendet, sichtbar bei Tastatur-Fokus */
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.6rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 4px 0;
+  transform: translateY(-110%);
+  transition: transform 0.15s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  color: var(--bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .skip-link { transition: none; }
 }
 
 body {
@@ -204,13 +250,17 @@ tbody tr:hover {
 
 .main-nav {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-2);
   font-size: 0.92rem;
 }
 
 .main-nav a {
   color: var(--fg);
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.4rem;
 }
 
 .main-nav a:hover,
@@ -241,6 +291,9 @@ tbody tr:hover {
 
 .site-footer a {
   color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 .site-footer a:hover {
@@ -251,6 +304,7 @@ tbody tr:hover {
   display: flex;
   gap: var(--space-3);
   flex-wrap: wrap;
+  align-items: center;
 }
 
 /* HERO */
@@ -593,4 +647,9 @@ figcaption {
   }
   .site-header { background: rgba(20, 23, 26, 0.92); }
   figure img { background: var(--bg-alt); }
+  /* Im Dark-Mode ist --accent ein helles Mintgrün; weiße Schrift hätte
+     darauf nur ~2.1:1 Kontrast. Stattdessen mit dunklem Text auf hellem
+     Akzent-Hintergrund → ~12:1. */
+  .btn-primary { color: var(--bg); }
+  .btn-primary:hover { background: #8AC9AD; color: var(--bg); }
 }
