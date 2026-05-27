@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+
+const entries = [
+  {
+    date: '27. Mai 2026',
+    title: 'Wissenschaftliches Repository neu strukturiert',
+    body: 'Das Provolution-Repository wurde für maximale wissenschaftliche Klarheit neu aufgebaut. Alle CANON-Dokumente, Daten und Methodik sind jetzt unter einer sauberen Struktur (canon/, manuscript/, applications/, studies/) zugänglich. Der vorherige Stand bleibt als Provolution-legacy privat erhalten — keine Inhalte gehen verloren, nur die Struktur ist klarer.',
+    link: { href: 'https://github.com/yokadeeds-dev/Provolution', label: 'github.com/yokadeeds-dev/Provolution' },
+  },
+  {
+    date: '27. Mai 2026',
+    title: 'Wissenschaftliche Präsenz aufgebaut',
+    body: 'Die Domain provolution.org präsentiert ab heute das wissenschaftliche Schaufenster des Frameworks. Die vorherige Konzeptseite wurde abgelöst durch ein wissenschaftlich-zugängliches Layout mit klarer Trennung zwischen Framework (Provolution), Methodik (Probatio Systemica), Quellen und Roadmap.',
+  },
+];
+---
+<Base title="Aktuelles" description="Aktuelle Mitteilungen und Versions-Updates zum Provolution-Framework.">
+  <section class="hero">
+    <div class="wrap">
+      <div class="tag">Aktuelles</div>
+      <h1>Aktuelles</h1>
+      <p class="subtitle">Versions-Updates, Methodik-Anpassungen und Publikations-Meilensteine.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    {entries.map(e => (
+      <article class="entry">
+        <span class="date">{e.date}</span>
+        <h3>{e.title}</h3>
+        <p>{e.body}</p>
+        {e.link && <p><a href={e.link.href} rel="noopener" target="_blank">{e.link.label} &rarr;</a></p>}
+      </article>
+    ))}
+  </div>
+</Base>
