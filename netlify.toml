@@ -2,11 +2,11 @@
 # https://docs.netlify.com/configure-builds/file-based-configuration/
 
 [build]
-  # No build command needed for static HTML
-  publish = "."
-  
+  command = "npm run build"
+  publish = "dist"
+
 [build.environment]
-  # Environment variables (if needed later)
+  NODE_VERSION = "20"
   
 [[redirects]]
   # Redirect www to non-www

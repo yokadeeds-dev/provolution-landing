@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+
+const repoBase = 'https://github.com/yokadeeds-dev/Provolution/blob/main';
+
+const baendeDE = [
+  { nr: '1', title: 'SEC-J-Kanon', path: 'canon/de/01_Band1_SEC_Kanon.md' },
+  { nr: '2', title: 'Entscheidungskarte', path: 'canon/de/02_Entscheidungskarte.md' },
+  { nr: '3', title: 'Scientific Core', path: 'canon/de/03_Band3_Scientific_Core.md' },
+  { nr: '4', title: 'Anwendungen', path: 'canon/de/04_Band4_Anwendungen_v4.2.md' },
+  { nr: '4', title: 'Community Integrations', path: 'canon/de/04_Band4_Community_Integrations.md' },
+  { nr: '5', title: 'Governance & Score', path: 'canon/de/05_Band5_Steuerung_Score.md' },
+];
+const volumesEN = [
+  { nr: '0', title: 'Executive Summary', path: 'canon/en/00_Executive_Summary_EN.md' },
+  { nr: '1', title: 'SEC Canon', path: 'canon/en/01_Band1_SEC_Canon_EN.md' },
+  { nr: '2', title: 'Decision Map', path: 'canon/en/02_Decision_Map_EN.md' },
+  { nr: '3', title: 'Scientific Core', path: 'canon/en/03_Scientific_Core_EN.md' },
+  { nr: '4', title: 'Applications', path: 'canon/en/04_Band4_Applications_EN.md' },
+  { nr: '5', title: 'Governance & Score', path: 'canon/en/05_Governance_Score_EN.md' },
+];
+const figures = [
+  { src: '/figures/Figure1_SEC_Framework.png', caption: 'Figure 1 — SEC-Framework: Die vier Achsen Sufficient, Efficient, Consistent und Just mit Veto-Bedingung.' },
+  { src: '/figures/Figure2_Decision_Map.png', caption: 'Figure 2 — Entscheidungskarte: Strukturierte Visualisierung der Bewertungslogik.' },
+  { src: '/figures/Figure3_Domain_CO2.png', caption: 'Figure 3 — CO₂-Reduktionspotenzial nach Domäne.' },
+  { src: '/figures/Figure4_SEC_Distribution.png', caption: 'Figure 4 — Verteilung der SEC-J-Werte über alle bewerteten Hebel.' },
+  { src: '/figures/Figure5_Agentic_Enhancement.png', caption: 'Figure 5 — Agentic Enhancement: Skalierungspfad über agentische Systemunterstützung.' },
+];
+---
+<Base title="Wissenschaft & Downloads" description="Wissenschaftliche Dokumente, Daten, Methodik und Publikationsfiguren des Provolution-Frameworks.">
+  <section class="hero">
+    <div class="wrap">
+      <div class="tag">Wissenschaft & Downloads</div>
+      <h1>Wissenschaft &amp; Downloads</h1>
+      <p class="subtitle">Quelltexte, Daten und Methodik &mdash; offen einsehbar im Repository.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <h2>Preprints &amp; DOIs</h2>
+    <p><strong>EarthArXiv-Preprint:</strong> In Vorbereitung. Der Link wird hier veröffentlicht, sobald der Preprint verfügbar ist.</p>
+    <p><strong>Zenodo-DOI:</strong> Wird in Kürze veröffentlicht.</p>
+    <p><strong>Journal-Einreichung:</strong> Manuskript eingereicht bei <em>Earth System Governance</em> (Elsevier). Erwartete erste Gutachter-Rückmeldung: zwei bis vier Monate.</p>
+
+    <h2>CANON &mdash; Deutsche Originale</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Band</th>
+          <th>Titel</th>
+          <th>Quelle</th>
+        </tr>
+      </thead>
+      <tbody>
+        {baendeDE.map(b => (
+          <tr>
+            <td><code>{b.nr}</code></td>
+            <td>{b.title}</td>
+            <td><a href={`${repoBase}/${b.path}`} rel="noopener" target="_blank">{b.path}</a></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h2 lang="en">CANON &mdash; English Volumes</h2>
+    <table lang="en">
+      <thead>
+        <tr>
+          <th>Volume</th>
+          <th>Title</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        {volumesEN.map(v => (
+          <tr>
+            <td><code>{v.nr}</code></td>
+            <td>{v.title}</td>
+            <td><a href={`${repoBase}/${v.path}`} rel="noopener" target="_blank">{v.path}</a></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h2>Daten und Methodik</h2>
+    <ul>
+      <li><a href={`${repoBase}/canon/data/co2_master.yaml`} rel="noopener" target="_blank"><code>canon/data/co2_master.yaml</code></a> &mdash; CO₂-Masterdaten, alle Hebel-Emissionsfaktoren</li>
+      <li><a href={`${repoBase}/canon/data/impact_master.yaml`} rel="noopener" target="_blank"><code>canon/data/impact_master.yaml</code></a> &mdash; Multi-Impact-Masterdaten über alle sechs Dimensionen</li>
+      <li><a href={`${repoBase}/canon/docs/METHODOLOGY_CO2_ASSESSMENT.md`} rel="noopener" target="_blank"><code>canon/docs/METHODOLOGY_CO2_ASSESSMENT.md</code></a> &mdash; vollständige CO₂-Bilanz-Methodologie (GHG&nbsp;Protocol- und IPCC-AR6-konform)</li>
+      <li><a href={`${repoBase}/canon/data/README_SSOT.md`} rel="noopener" target="_blank"><code>canon/data/README_SSOT.md</code></a> &mdash; Single-Source-of-Truth-Konzept</li>
+      <li><a href={`${repoBase}/canon/data/README_MULTI_IMPACT.md`} rel="noopener" target="_blank"><code>canon/data/README_MULTI_IMPACT.md</code></a> &mdash; Multi-Impact-Framework v2.0, Dimensionen-Beschreibung</li>
+      <li><a href={`${repoBase}/canon/templates/`} rel="noopener" target="_blank"><code>canon/templates/</code></a> &mdash; JSON-Schemata und Beispiele (z.&nbsp;B. EXAMPLE_D17_HANF.json)</li>
+    </ul>
+
+    <h2>Repository</h2>
+    <p><a href="https://github.com/yokadeeds-dev/Provolution" rel="noopener" target="_blank">github.com/yokadeeds-dev/Provolution</a></p>
+    <p>Vollständiger Quelltext aller CANON-Dokumente, Daten und Methodik. Zitierhinweise in <a href="https://github.com/yokadeeds-dev/Provolution/blob/main/CITATION.cff" rel="noopener" target="_blank"><code>CITATION.cff</code></a>.</p>
+
+    <h2>Publikationsfiguren</h2>
+    {figures.map(f => (
+      <figure>
+        <img src={f.src} alt={f.caption} loading="lazy" />
+        <figcaption>{f.caption}</figcaption>
+      </figure>
+    ))}
+  </div>
+</Base>
