@@ -37,8 +37,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://provolution
   <meta name="author" content="Tobias Yoka Dietz" />
 </head>
 <body>
+  <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
   <Header />
-  <main>
+  <main id="main" tabindex="-1">
     <slot />
   </main>
   <Footer />
