@@ -3,424 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROVOLUTION - Klimaschutz durch Gamification</title>
-    <meta name="description" content="Berechne deinen CO₂-Fußabdruck, nimm an Challenges teil und werde Teil der Klima-Community. Open Source. Wissenschaftlich fundiert.">
-    
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://provolution.org/">
-    <meta property="og:title" content="PROVOLUTION - Klimaschutz durch Gamification">
-    <meta property="og:description" content="CO₂-Rechner, Challenges, Badges. 100% Open Source.">
-    <meta property="og:image" content="https://provolution.org/favicon.svg">
-    
+    <title>Provolution</title>
+    <meta name="description" content="Provolution - Klimatransformations-Framework. Website im Aufbau.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
+        :root {
+            --bg: #FAFAFA;
+            --fg: #1A1A1A;
+            --muted: #6B6B6B;
+            --rule: #E5E5E5;
+        }
+
+        html, body { height: 100%; }
+
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
             line-height: 1.6;
-            color: #333;
-            background: #F5F5F5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* NAV */
-        nav {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-        
-        .logo { font-size: 24px; font-weight: 800; color: #0D5C3D; }
-        
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { text-decoration: none; color: #333; font-weight: 500; }
-        .nav-links a:hover { color: #00A8E8; }
-        
-        .cta-button {
-            background: linear-gradient(135deg, #0D5C3D, #00A8E8);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,168,232,0.3);
-        }
-        
-        /* HERO */
-        .hero {
-            background: linear-gradient(135deg, #0D5C3D 0%, #00A8E8 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; }
-        .hero p { font-size: 20px; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; opacity: 0.95; }
-        
-        .hero-ctas { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        
-        .btn-primary {
-            background: white;
-            color: #0D5C3D;
-            padding: 15px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-            transition: all 0.3s;
-        }
-        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(255,255,255,0.3); }
-        
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-            padding: 15px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-        }
-        .btn-secondary:hover { background: white; color: #0D5C3D; }
-        
-        /* BETA BADGE */
-        .beta-badge {
-            display: inline-block;
-            background: #FF6B35;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        
-        /* FEATURES */
-        .features {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 800;
-            color: #0D5C3D;
-            margin-bottom: 60px;
-        }
-        
-        .feature-grid {
+
+        .page {
+            min-height: 100vh;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-rows: 1fr auto;
+            padding: 32px 24px;
         }
-        
-        .feature-card {
-            background: #F5F5F5;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .feature-card:hover { transform: translateY(-5px); }
-        
-        .feature-icon { font-size: 48px; margin-bottom: 20px; }
-        .feature-card h3 { font-size: 22px; margin-bottom: 15px; color: #0D5C3D; }
-        .feature-card p { color: #666; }
-        
-        .feature-status {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-top: 15px;
-        }
-        .status-live { background: #4CAF50; color: white; }
-        .status-beta { background: #FF9800; color: white; }
-        .status-soon { background: #9E9E9E; color: white; }
-        
-        /* APP PREVIEW */
-        .app-preview {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #E8F5F3, #F5F5F5);
-        }
-        
-        .preview-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .preview-text h2 { font-size: 32px; color: #0D5C3D; margin-bottom: 20px; }
-        .preview-text p { color: #666; margin-bottom: 20px; }
-        
-        .preview-list { list-style: none; }
-        .preview-list li { padding: 10px 0; padding-left: 30px; position: relative; }
-        .preview-list li:before { content: "✓"; position: absolute; left: 0; color: #4CAF50; font-weight: bold; }
-        
-        .preview-image {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-        
-        .preview-image img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        
-        .app-screenshot {
-            background: linear-gradient(135deg, #0D5C3D, #00A8E8);
-            border-radius: 10px;
-            padding: 40px;
-            color: white;
-            text-align: center;
-            min-height: 300px;
+
+        main {
             display: flex;
             flex-direction: column;
+            align-items: center;
             justify-content: center;
-        }
-        
-        /* SCIENCE */
-        .science {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .science-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .science-item {
             text-align: center;
-            padding: 30px;
-            background: #F5F5F5;
-            border-radius: 15px;
+            gap: 48px;
+            max-width: 640px;
+            margin: 0 auto;
+            width: 100%;
         }
-        
-        .science-item .number { font-size: 36px; font-weight: 800; color: #0D5C3D; }
-        .science-item .label { color: #666; font-size: 14px; margin-top: 10px; }
-        
-        /* CTA */
-        .final-cta {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #00A8E8, #0D5C3D);
-            color: white;
-            text-align: center;
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
         }
-        
-        .final-cta h2 { font-size: 36px; margin-bottom: 20px; }
-        .final-cta p { font-size: 18px; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.9; }
-        
-        /* FOOTER */
+
+        .brand-name {
+            font-size: clamp(2rem, 6vw, 3.25rem);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+        }
+
+        .brand-sub {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--muted);
+            letter-spacing: 0.02em;
+        }
+
+        .body-text {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .headline {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-weight: 500;
+            color: var(--fg);
+        }
+
+        .body-text p {
+            font-size: 1rem;
+            color: var(--muted);
+        }
+
         footer {
-            background: #0D5C3D;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            padding-top: 32px;
+            font-size: 0.85rem;
+            color: var(--muted);
         }
-        
-        .footer-links { margin-bottom: 20px; }
-        .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; margin: 0 15px; }
-        .footer-links a:hover { color: white; }
-        
-        .footer-copy { opacity: 0.6; font-size: 14px; }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .nav-links { display: none; }
-            .preview-container { grid-template-columns: 1fr; }
-            .science-grid { grid-template-columns: repeat(2, 1fr); }
+
+        footer a {
+            color: var(--muted);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color 0.15s ease;
+        }
+
+        footer a:hover,
+        footer a:focus-visible {
+            color: var(--fg);
+        }
+
+        footer a:focus-visible {
+            outline: 1px solid var(--fg);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        .copy {
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 480px) {
+            .page { padding: 24px 20px; }
+            main { gap: 36px; }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1A1A1A;
+                --fg: #F5F5F5;
+                --muted: #9A9A9A;
+                --rule: #2A2A2A;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- NAV -->
-    <nav>
-        <div class="container">
-            <div class="logo">🌍 PROVOLUTION</div>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#app">App</a></li>
-                <li><a href="#science">Wissenschaft</a></li>
-                <li><a href="https://github.com/yokadeeds-dev/provolution-gamification" target="_blank">GitHub</a></li>
-            </ul>
-            <a href="https://provolution-gamification.netlify.app" class="cta-button">App öffnen →</a>
-        </div>
-    </nav>
+    <div class="page">
+        <main>
+            <div class="brand">
+                <div class="brand-name">PROVOLUTION</div>
+                <div class="brand-sub">Klimatransformations-Framework</div>
+            </div>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container">
-            <span class="beta-badge">🚀 BETA - Jetzt testen!</span>
-            <h1>Klimaschutz durch Gamification</h1>
-            <p>Berechne deinen CO₂-Fußabdruck, nimm an Challenges teil und tracke deinen Impact. Kostenlos. Open Source. Wissenschaftlich fundiert.</p>
-            <div class="hero-ctas">
-                <a href="https://provolution-gamification.netlify.app" class="btn-primary">Jetzt kostenlos starten</a>
-                <a href="https://provolution-api.onrender.com/docs" class="btn-secondary">API Dokumentation</a>
+            <div class="body-text">
+                <h1 class="headline">Website im Aufbau</h1>
+                <p>Die wissenschaftliche Präsenz wird derzeit neu aufgebaut.</p>
+                <p>Verfügbar in Kürze.</p>
             </div>
-        </div>
-    </section>
+        </main>
 
-    <!-- FEATURES -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title">Was du tun kannst</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>CO₂-Fußabdruck berechnen</h3>
-                    <p>Mobilität, Wohnen, Ernährung, Konsum - berechne deinen persönlichen Footprint mit 24 wissenschaftlichen Emissionsfaktoren.</p>
-                    <span class="feature-status status-live">✓ Live</span>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3>Challenges meistern</h3>
-                    <p>Standby-Killer, Fahrrad-Pendler, Veggie-Woche - starte Challenges und sammle XP für echte Klimaaktionen.</p>
-                    <span class="feature-status status-live">✓ Live</span>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🎖️</div>
-                    <h3>Badges verdienen</h3>
-                    <p>Schalte Achievements frei: Strom-Ninja, Pedalritter, CO₂-Tracker und mehr.</p>
-                    <span class="feature-status status-live">✓ Live</span>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h3>Leaderboard</h3>
-                    <p>Vergleiche dich mit anderen - wöchentlich, monatlich, regional.</p>
-                    <span class="feature-status status-beta">Beta</span>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Teams & Community</h3>
-                    <p>Gründe Teams, fordere Freunde heraus und erreicht gemeinsam mehr.</p>
-                    <span class="feature-status status-soon">Bald</span>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🎁</div>
-                    <h3>Hardware-Rewards</h3>
-                    <p>Tausche XP gegen echte Klimaschutz-Hardware: Smart Plugs, LED-Sets, Balkonkraftwerk-Gutscheine.</p>
-                    <span class="feature-status status-soon">Bald</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- APP PREVIEW -->
-    <section class="app-preview" id="app">
-        <div class="container">
-            <div class="preview-container">
-                <div class="preview-text">
-                    <h2>Dein persönliches Klima-Dashboard</h2>
-                    <p>Alles auf einen Blick: Dein CO₂-Footprint, aktive Challenges, verdiente XP und Badges.</p>
-                    <ul class="preview-list">
-                        <li>Registrierung mit E-Mail (Google OAuth kommt bald)</li>
-                        <li>CO₂-Rechner mit SEC-Score Integration</li>
-                        <li>5 aktive Challenges zum Starten</li>
-                        <li>Automatische XP-Berechnung</li>
-                        <li>Mobile-optimiert</li>
-                    </ul>
-                    <a href="https://provolution-gamification.netlify.app" class="cta-button" style="display: inline-block; margin-top: 20px;">App öffnen →</a>
-                </div>
-                <div class="preview-image">
-                    <div class="app-screenshot">
-                        <div style="font-size: 64px; margin-bottom: 20px;">🌍</div>
-                        <div style="font-size: 24px; font-weight: 700;">Provolution App</div>
-                        <div style="margin-top: 10px; opacity: 0.8;">CO₂-Rechner • Challenges • Badges</div>
-                        <div style="margin-top: 30px;">
-                            <a href="https://provolution-gamification.netlify.app" style="color: white; background: rgba(255,255,255,0.2); padding: 10px 25px; border-radius: 20px; text-decoration: none; font-weight: 600;">Live testen →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SCIENCE -->
-    <section class="science" id="science">
-        <div class="container">
-            <h2 class="section-title">Wissenschaftlich fundiert</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; color: #666;">
-                Provolution basiert auf dem SEC-Framework (Sufficiency, Efficiency, Consistency) und peer-reviewed Emissionsfaktoren.
-            </p>
-            <div class="science-grid">
-                <div class="science-item">
-                    <div class="number">24</div>
-                    <div class="label">Emissionsfaktoren<br>(UBA/TREMOD/ifeu)</div>
-                </div>
-                <div class="science-item">
-                    <div class="number">5</div>
-                    <div class="label">Wissenschaftliche<br>Bände</div>
-                </div>
-                <div class="science-item">
-                    <div class="number">30</div>
-                    <div class="label">Validierte<br>Anwendungen</div>
-                </div>
-                <div class="science-item">
-                    <div class="number">50.7</div>
-                    <div class="label">Gt CO₂/Jahr<br>Reduktionspotenzial</div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="https://github.com/yokadeeds-dev/Provolution" style="color: #00A8E8; font-weight: 600; text-decoration: none;">📚 Wissenschaftliche Dokumentation auf GitHub →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>Sei einer der Ersten</h2>
-            <p>Die Beta ist live. Registriere dich jetzt und hilf uns, die Plattform zu verbessern. Dein Feedback zählt!</p>
-            <div class="hero-ctas">
-                <a href="https://provolution-gamification.netlify.app" class="btn-primary">Kostenlos registrieren</a>
-                <a href="https://github.com/yokadeeds-dev/provolution-gamification" class="btn-secondary">GitHub</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="https://provolution-gamification.netlify.app/privacy.html">Datenschutz</a>
-                <a href="https://provolution-gamification.netlify.app/impressum.html">Impressum</a>
-                <a href="https://github.com/yokadeeds-dev/provolution-gamification">GitHub</a>
-                <a href="https://provolution-api.onrender.com/docs">API Docs</a>
-            </div>
-            <p class="footer-copy">© 2026 PROVOLUTION | Open Source unter MIT Lizenz | Made in Hamm 🇩🇪</p>
-        </div>
-    </footer>
+        <footer>
+            <a href="https://github.com/yokadeeds-dev/Provolution" rel="noopener">Forschungs-Repository auf GitHub</a>
+            <div class="copy">&copy; 2026 Tobias Yoka Dietz &middot; Hamm, Deutschland</div>
+        </footer>
+    </div>
 </body>
 </html>
