@@ -60,6 +60,10 @@ const domains = [
     <h2>SEC-J-Evaluation</h2>
     <p>Jeder Hebel wird über vier Achsen bewertet. Die Achsen sind nicht ersetzbar &mdash; jede misst eine eigenständige Eigenschaft, die für systemische Tragfähigkeit zwingend erforderlich ist.</p>
 
+    <figure class="concept-figure">
+      <img src="/figures/concepts/provolution-sec-j-concept.svg" alt="SEC-J-Evaluation: Vier Achsen Sufficient, Efficient, Consistent, Just mit Veto-Mechanismus bei J unter 0.50" loading="lazy" />
+    </figure>
+
     <div class="secj-axes">
       <div class="secj-axis">
         <span class="letter">S</span>
@@ -83,8 +87,7 @@ const domains = [
       </div>
     </div>
 
-    <p>Die aktuelle Gewichtung der Achsen entspricht der SEC-J-Formel:</p>
-    <p><code>SEC-J = 0,40 &middot; S + 0,25 &middot; E + 0,15 &middot; C + 0,20 &middot; J</code></p>
+    <p>Die Achsen-Gewichtung der SEC-J-Formel ist eine Linearkombination mit positiven Gewichten, die zu 1 summieren; konkrete Gewichte stehen in <a href="https://github.com/yokadeeds-dev/Provolution/blob/main/canon/de/SECJ_SPEC_v1.0.md" rel="noopener" target="_blank"><code>canon/de/SECJ_SPEC_v1.0.md</code></a>.</p>
 
     <h2>J-Veto</h2>
     <p>Die J-Achse ist nicht additiv kompensierbar. Bei einem Equity-Score unter null (regressive Verteilung) ergibt sich rechnerisch J&nbsp;&lt;&nbsp;0,50, und der Hebel wird unzulässig &mdash; unabhängig davon, wie hoch S, E oder C ausfallen.</p>
@@ -101,6 +104,11 @@ const domains = [
 
     <h2>Multi-Impact Framework</h2>
     <p>Über die reine CO₂-Bilanzierung hinaus bewertet jeder Hebel Wirkungen auf sechs zusätzliche Impact-Dimensionen:</p>
+
+    <figure class="concept-figure">
+      <img src="/figures/concepts/provolution-multi-impact-hexagon.svg" alt="Multi-Impact Framework: Sechs gleichberechtigte Bewertungsdimensionen als Hexagon-Radar" loading="lazy" />
+    </figure>
+
     <ul>
       <li><strong>GHG&nbsp;Accounting</strong> &mdash; Vollständige Treibhausgas-Bilanz (CO₂, CH₄, N₂O, F-Gase) inklusive Treibhauspotenzial-Umrechnung; ergänzt die reine CO₂-Bilanz um etwa +27&nbsp;% Reduktionspotenzial.</li>
       <li><strong>Environmental</strong> &mdash; Wasserverbrauch, Landnutzung und Biodiversität (Mean Species Abundance Index).</li>
