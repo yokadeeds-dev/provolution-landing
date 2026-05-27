@@ -1,0 +1,122 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Domain-Daten abgeleitet aus canon/data/co2_master.yaml und canon/de/HEBEL_KATALOG_v1.0.md (Stand 2026-05-09).
+// Hebel-Zählung pro Domain ist Repo-Stand; Gesamtsumme weicht von 43 ab, weil community-integrated Hebel
+// (5 zusätzliche) in der canonical-Domain-Verteilung nicht enthalten sind.
+const domains = [
+  { id: 'A', name: 'Governance & Steuerung', count: 6, co2: '−8,2' },
+  { id: 'B', name: 'Produktion & Industrie', count: 6, co2: '−15,8' },
+  { id: 'C', name: 'Energie & Infrastruktur', count: 4, co2: '−12,3' },
+  { id: 'D', name: 'Ernährung & Landnutzung', count: 4, co2: '−9,4' },
+  { id: 'E', name: 'Bildung & Bewusstsein', count: 4, co2: '−1,8' },
+  { id: 'F', name: 'Technologie & Innovation', count: 5, co2: '−2,1' },
+  { id: 'G', name: 'Monitoring & Kontrolle', count: 3, co2: '−0,6' },
+  { id: 'H', name: 'Übergeordnete Werkzeuge & Finanzierung', count: 3, co2: '−0,5' },
+  { id: 'I', name: 'Mobilität & Kreislauf', count: 2, co2: '−1,3' },
+  { id: 'J', name: 'Konstruktion (in Entwicklung)', count: 1, co2: '−3,0' },
+];
+---
+<Base title="Provolution — Framework" description="Das Provolution-Framework: Katalog SEC-J-bewerteter Klima-Hebel über zehn Domänen. Methodisch konform mit GHG Protocol und IPCC AR6.">
+  <section class="hero">
+    <div class="wrap">
+      <div class="tag">Framework</div>
+      <h1>Provolution</h1>
+      <p class="subtitle">Anwendung der Probatio-Systemica-Methodik auf das Problem der globalen Klimatransformation.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <h2>Übersicht</h2>
+    <p>Provolution ist die anwendungsorientierte Ebene eines wissenschaftlichen Frameworks zur Klimatransformation. Sie wendet die Probatio-Systemica-Methodik auf das konkrete Problem der globalen Treibhausgas-Reduktion an und bewertet einen Katalog konkreter Hebel über zehn Domänen hinweg.</p>
+    <p>Das aufsummierte Reduktionspotenzial übersteigt die heutigen globalen Treibhausgas-Emissionen und wird durch aktive Kohlenstoff-Bindung (Boden-Kohlenstoff, Biomasse, technische Senken) sogar netto-negativ &mdash; das Framework rechnet also nicht nur mit Emissions-Vermeidung, sondern mit aktivem Entzug.</p>
+    <p>Provolution unterscheidet sich von rein technischen oder rein politischen Klima-Ansätzen dadurch, dass es jeden Hebel gleichzeitig an vier Achsen prüft &mdash; Hinreichend, Ressourceneffizient, Widerspruchsfrei und Gerecht &mdash; und Maßnahmen, die soziale Ungleichheit verstärken, automatisch ausschließt, selbst wenn sie in den anderen drei Achsen gut abschneiden.</p>
+
+    <h2>Die zehn Domänen (A&ndash;J)</h2>
+    <p>Hebel sind in zehn fachlich abgegrenzte Domänen gegliedert. Jede Domäne enthält zwischen einem und sechs Einzelhebel, mit eigenem CO₂-Potenzial.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Domäne</th>
+          <th>Hebel</th>
+          <th>Potenzial (Gt&nbsp;CO₂eq/Jahr)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {domains.map(d => (
+          <tr>
+            <td><code>{d.id}</code></td>
+            <td>{d.name}</td>
+            <td>{d.count}</td>
+            <td>{d.co2}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <p class="note"><strong>Hinweis:</strong> Die kanonische Verteilung pro Domäne summiert nicht alle Hebel auf &mdash; weitere Hebel werden über einen Aufnahme-Prozess aus eingereichten Vorschlägen integriert und in dieser Tabelle nicht separat ausgewiesen. Aktuelle Gesamtzahlen und ausführliche Hebel-Beschreibungen liegen im CANON (Band&nbsp;4) und in <a href="https://github.com/yokadeeds-dev/Provolution/blob/main/canon/data/co2_master.yaml" rel="noopener" target="_blank"><code>canon/data/co2_master.yaml</code></a>.</p>
+
+    <h2>SEC-J-Bewertung</h2>
+    <p>Jeder Hebel wird über vier Achsen bewertet. Die Achsen sind nicht gegeneinander ersetzbar &mdash; jede misst eine eigenständige Eigenschaft, die für systemische Tragfähigkeit zwingend erforderlich ist.</p>
+
+    <figure class="concept-figure">
+      <img src="/figures/concepts/provolution-sec-j-concept.svg" alt="SEC-J-Evaluation: Vier Achsen Sufficient, Efficient, Consistent, Just mit Veto-Mechanismus bei J unter 0.50" loading="lazy" />
+    </figure>
+
+    <div class="secj-axes">
+      <div class="secj-axis">
+        <span class="letter">S</span>
+        <span class="axis-name">Sufficient</span>
+        <span class="axis-desc">Hinreichend, um die definierte Wirkung zu erzielen. Ein Hebel mit S&nbsp;&lt;&nbsp;1 erreicht das angestrebte Ziel nicht.</span>
+      </div>
+      <div class="secj-axis">
+        <span class="letter">E</span>
+        <span class="axis-name">Efficient</span>
+        <span class="axis-desc">Minimiert Ressourcenverbrauch bei gegebener Wirkung. Von allen ausreichenden Maßnahmen ist die sparsamste zu wählen.</span>
+      </div>
+      <div class="secj-axis">
+        <span class="letter">C</span>
+        <span class="axis-name">Consistent</span>
+        <span class="axis-desc">Erzeugt keine systemischen Widersprüche. Hebel dürfen sich nicht gegenseitig aufheben oder kompensieren.</span>
+      </div>
+      <div class="secj-axis">
+        <span class="letter">J</span>
+        <span class="axis-name">Just</span>
+        <span class="axis-desc">Bewertet Verteilungs-Gerechtigkeit über einen normierten Gerechtigkeits-Score. J&nbsp;&lt;&nbsp;0,50 löst ein striktes Veto aus.</span>
+      </div>
+    </div>
+
+    <p>Die Achsen-Gewichtung der SEC-J-Formel ist eine gewichtete Summe mit positiven Anteilen, die zu eins addiert werden; die konkreten Anteile stehen in <a href="https://github.com/yokadeeds-dev/Provolution/blob/main/canon/de/SECJ_SPEC_v1.0.md" rel="noopener" target="_blank"><code>canon/de/SECJ_SPEC_v1.0.md</code></a>.</p>
+
+    <h2>J-Veto</h2>
+    <p>Die J-Achse lässt sich nicht durch hohe Werte anderer Achsen ausgleichen. Bei einer regressiven Verteilung (Gerechtigkeits-Score unter null) ergibt sich rechnerisch J&nbsp;&lt;&nbsp;0,50, und der Hebel wird unzulässig &mdash; unabhängig davon, wie hoch S, E oder C ausfallen.</p>
+    <p>Die Begründung ist nicht ethisch-normativ, sondern praktisch: Erfahrungsbefunde (Gelbwesten-Proteste in Frankreich 2018, der US-Kohleausstieg) zeigen, dass Klima-Bewertungs-Frameworks ohne Gerechtigkeits-Komponente politisch zu kippen drohen, sobald Legitimitäts-Druck entsteht. Das Veto-Prinzip folgt damit dem von Taleb (2012) beschriebenen Prinzip der Antifragilität &mdash; ausführlich in <a href="https://github.com/yokadeeds-dev/Provolution/blob/main/canon/de/ANTIFRAGILITY_PRINCIPLE.md" rel="noopener" target="_blank">ANTIFRAGILITY_PRINCIPLE</a> im CANON dokumentiert.</p>
+
+    <h2>CO₂-Gesamtpotenzial</h2>
+    <div class="hero" style="border-bottom: none; padding: 0;">
+      <div class="kennzahl">
+        <span class="value">&minus;58,0 Gt CO₂eq/Jahr</span>
+        <span class="label">Methodisch konform mit dem GHG&nbsp;Protocol (internationaler Standard für Treibhausgas-Bilanzierung) und dem 6. Sachstandsbericht des Weltklimarats IPCC (Arbeitsgruppe&nbsp;III, Kapitel&nbsp;2 und 3).</span>
+      </div>
+    </div>
+    <p>Alle Emissionsfaktoren sind mit IPCC-Quellen und 95-%-Vertrauensintervallen hinterlegt. Die Methodik unterscheidet sauber zwischen direkten Emissionen (Scope&nbsp;1), bezogener Energie (Scope&nbsp;2) und vor- bzw. nachgelagerten Wertschöpfungs-Emissionen (Scope&nbsp;3) und vermeidet Doppelzählungen. Die vollständige Dokumentation liegt in <a href="/wissenschaft">Wissenschaft &amp; Downloads</a>.</p>
+
+    <h2>Bewertung über sechs Wirkungs-Dimensionen</h2>
+    <p>Über die reine CO₂-Bilanzierung hinaus bewertet jeder Hebel Wirkungen auf sechs zusätzliche Dimensionen. Damit lässt sich erkennen, ob eine Maßnahme zwar das Klima schützt, aber Nebenwirkungen in anderen Bereichen erzeugt &mdash; oder umgekehrt zusätzliche Begleitvorteile bringt.</p>
+
+    <figure class="concept-figure">
+      <img src="/figures/concepts/provolution-multi-impact-hexagon.svg" alt="Sechs gleichberechtigte Bewertungs-Dimensionen als Hexagon-Radar" loading="lazy" />
+    </figure>
+
+    <ul>
+      <li><strong>Treibhausgas-Bilanz</strong> &mdash; Vollständige Verbuchung aller klimawirksamen Gase (CO₂, Methan, Lachgas, fluorierte Industriegase), umgerechnet auf ihre jeweilige Klimawirkung. Erweitert die reine CO₂-Sicht um etwa ein Viertel zusätzliches Reduktionspotenzial.</li>
+      <li><strong>Umwelt</strong> &mdash; Wirkung auf Wasserverbrauch, Flächenbedarf (etwa für Wiederbewaldung oder Renaturierung) und Artenvielfalt.</li>
+      <li><strong>Soziales &amp; Verteilung</strong> &mdash; Wer trägt die Kosten, wer profitiert? Erfasst Begleitnutzen wie weniger Feinstaub-Todesfälle, neu entstehende Arbeitsplätze und Verteilung zwischen Einkommensgruppen.</li>
+      <li><strong>Energie &amp; Rebound</strong> &mdash; Energiebilanz einer Maßnahme, korrigiert um Rebound-Effekte: Einsparungen, die durch erhöhten Verbrauch an anderer Stelle wieder aufgezehrt werden.</li>
+      <li><strong>Steuerung &amp; Regulatorik</strong> &mdash; Schutz vor Greenwashing über drei Kriterien: <em>Zusätzlichkeit</em> (die Maßnahme wirkt nur, wenn sie sonst nicht stattgefunden hätte), <em>Dauerhaftigkeit</em> (die Wirkung bleibt langfristig) und <em>Verlagerungs-Vermeidung</em> (Emissionen werden nicht in andere Sektoren oder Länder verschoben). Plus Prüfung auf Einhaltung relevanter Vorschriften (EU-Taxonomie, CSRD-Berichtspflicht, DSGVO, freiwillige Einwilligung betroffener indigener Gemeinschaften).</li>
+      <li><strong>Systempfade</strong> &mdash; Bewertung in unterschiedlichen Klima-Pfaden (1,5&nbsp;°C- bzw. 1,8&nbsp;°C-Erwärmungsziel), Risiko von Lock-in-Effekten (Pfadabhängigkeiten, die spätere Korrekturen erschweren) und Position innerhalb des verbleibenden globalen CO₂-Budgets.</li>
+    </ul>
+    <p>Die ausführliche operationelle Beschreibung dieses Wirkungs-Frameworks liegt in <a href="https://github.com/yokadeeds-dev/Provolution/blob/main/canon/data/README_MULTI_IMPACT.md" rel="noopener" target="_blank">README_MULTI_IMPACT.md</a> im Repository.</p>
+  </div>
+</Base>

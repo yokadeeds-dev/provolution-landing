@@ -1,0 +1,46 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="og-title og-desc" style="font-family: Inter, 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <title id="og-title">Provolution Open Graph Image</title>
+  <desc id="og-desc">Social media preview card for provolution.org showing the framework name and subtitle.</desc>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#FAFAFA"/>
+  <rect x="1" y="1" width="1198" height="628" fill="none" stroke="#E8EFEB" stroke-width="1"/>
+
+  <!-- Decorative axis cross -->
+  <g transform="translate(240, 315)" opacity="0.07">
+    <line x1="-160" y1="0" x2="160" y2="0" stroke="#2F5D4F" stroke-width="1.5"/>
+    <line x1="0" y1="-140" x2="0" y2="140" stroke="#2F5D4F" stroke-width="1.5"/>
+    <circle r="60" fill="none" stroke="#2F5D4F" stroke-width="0.75"/>
+    <circle r="120" fill="none" stroke="#2F5D4F" stroke-width="0.5"/>
+    <text x="-145" y="-8" font-size="14" font-weight="500" fill="#2F5D4F">S</text>
+    <text x="138" y="-8" font-size="14" font-weight="500" fill="#2F5D4F">E</text>
+    <text x="6" y="-125" font-size="14" font-weight="500" fill="#2F5D4F">C</text>
+    <text x="6" y="138" font-size="14" font-weight="500" fill="#2F5D4F">J</text>
+  </g>
+
+  <!-- Scattered domain letters -->
+  <g opacity="0.04" fill="#2F5D4F" font-weight="600">
+    <text x="120" y="200" font-size="32">A</text>
+    <text x="310" y="180" font-size="24">B</text>
+    <text x="170" y="420" font-size="28">D</text>
+    <text x="340" y="380" font-size="22">F</text>
+    <text x="130" y="340" font-size="26">G</text>
+    <text x="290" y="460" font-size="20">I</text>
+  </g>
+
+  <!-- PROVOLUTION -->
+  <text x="700" y="255" fill="#1A1A1A" font-size="56" font-weight="700" letter-spacing="0.06em">PROVOLUTION</text>
+  <line x1="700" y1="272" x2="860" y2="272" stroke="#2F5D4F" stroke-width="2.5"/>
+
+  <!-- Subtitle -->
+  <text x="700" y="310" fill="#5C6360" font-size="22" font-weight="400" letter-spacing="0.02em">Klimatransformations-Framework</text>
+  <text x="700" y="348" fill="#9CA3A0" font-size="15" letter-spacing="0.01em">SEC-J-Bewertung — Multi-Impact-Framework</text>
+
+  <!-- URL -->
+  <text x="700" y="420" fill="#2F5D4F" font-size="16" font-weight="500" letter-spacing="0.03em">provolution.org</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="610" width="1200" height="20" fill="#2F5D4F" opacity="0.08"/>
+  <text x="1160" y="598" text-anchor="end" fill="#9CA3A0" font-size="12">Tobias Yoka Dietz — Unabhängige Klimapolitik-Forschung</text>
+
+</svg>

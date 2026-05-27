@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Provolution — Klimatransformations-Framework auf Basis der Probatio-Systemica-Methodik.' } = Astro.props;
+const fullTitle = title === 'Provolution' ? 'Provolution' : `${title} · Provolution`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://provolution.org').href;
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:image" content="https://provolution.org/figures/concepts/provolution-og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Provolution — Klimatransformations-Framework" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://provolution.org/figures/concepts/provolution-og-image.svg" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Tobias Yoka Dietz" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+  <Header />
+  <main id="main" tabindex="-1">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

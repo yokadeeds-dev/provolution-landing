@@ -1,0 +1,72 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="secj-title secj-desc" style="font-family: Inter, 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <title id="secj-title">SEC-J Evaluation Framework</title>
+  <desc id="secj-desc">Four evaluation axes — Sufficient, Efficient, Consistent, Just — where J carries veto power at the 0.50 threshold.</desc>
+
+  <rect width="800" height="500" fill="none"/>
+
+  <text x="400" y="42" text-anchor="middle" fill="#1A1A1A" font-size="18" font-weight="600" letter-spacing="0.03em">SEC-J Evaluation</text>
+  <text x="400" y="64" text-anchor="middle" fill="#5C6360" font-size="12" letter-spacing="0.02em">Vier Achsen, gleichgewichtet — J mit Veto-Mechanismus</text>
+
+  <line x1="80" y1="400" x2="720" y2="400" stroke="#D4D8D6" stroke-width="1"/>
+
+  <text x="72" y="404" text-anchor="end" fill="#9CA3A0" font-size="10">0</text>
+  <text x="72" y="254" text-anchor="end" fill="#9CA3A0" font-size="10">0.50</text>
+  <text x="72" y="104" text-anchor="end" fill="#9CA3A0" font-size="10">1.00</text>
+
+  <line x1="80" y1="250" x2="720" y2="250" stroke="#E8EFEB" stroke-width="0.5"/>
+  <line x1="80" y1="100" x2="720" y2="100" stroke="#E8EFEB" stroke-width="0.5"/>
+
+  <!-- S -->
+  <g transform="translate(160, 0)">
+    <rect x="-40" y="100" width="80" height="300" rx="4" fill="#F0F2F1" stroke="#D4D8D6" stroke-width="0.75"/>
+    <rect x="-40" y="190" width="80" height="210" rx="4" fill="#D4D8D6" opacity="0.4"/>
+    <text x="0" y="270" text-anchor="middle" fill="#5C6360" font-size="42" font-weight="700" opacity="0.3">S</text>
+    <text x="0" y="430" text-anchor="middle" fill="#1A1A1A" font-size="16" font-weight="600">S</text>
+    <text x="0" y="450" text-anchor="middle" fill="#5C6360" font-size="11">Sufficient</text>
+    <text x="0" y="466" text-anchor="middle" fill="#9CA3A0" font-size="10">Hinreichend</text>
+  </g>
+
+  <!-- E -->
+  <g transform="translate(310, 0)">
+    <rect x="-40" y="100" width="80" height="300" rx="4" fill="#F0F2F1" stroke="#D4D8D6" stroke-width="0.75"/>
+    <rect x="-40" y="190" width="80" height="210" rx="4" fill="#D4D8D6" opacity="0.4"/>
+    <text x="0" y="270" text-anchor="middle" fill="#5C6360" font-size="42" font-weight="700" opacity="0.3">E</text>
+    <text x="0" y="430" text-anchor="middle" fill="#1A1A1A" font-size="16" font-weight="600">E</text>
+    <text x="0" y="450" text-anchor="middle" fill="#5C6360" font-size="11">Efficient</text>
+    <text x="0" y="466" text-anchor="middle" fill="#9CA3A0" font-size="10">Ressourceneffizient</text>
+  </g>
+
+  <!-- C -->
+  <g transform="translate(460, 0)">
+    <rect x="-40" y="100" width="80" height="300" rx="4" fill="#F0F2F1" stroke="#D4D8D6" stroke-width="0.75"/>
+    <rect x="-40" y="190" width="80" height="210" rx="4" fill="#D4D8D6" opacity="0.4"/>
+    <text x="0" y="270" text-anchor="middle" fill="#5C6360" font-size="42" font-weight="700" opacity="0.3">C</text>
+    <text x="0" y="430" text-anchor="middle" fill="#1A1A1A" font-size="16" font-weight="600">C</text>
+    <text x="0" y="450" text-anchor="middle" fill="#5C6360" font-size="11">Consistent</text>
+    <text x="0" y="466" text-anchor="middle" fill="#9CA3A0" font-size="10">Widerspruchsfrei</text>
+  </g>
+
+  <!-- J (VETO) -->
+  <g transform="translate(610, 0)">
+    <rect x="-40" y="100" width="80" height="300" rx="4" fill="#E8EFEB" stroke="#2F5D4F" stroke-width="1.25"/>
+    <rect x="-40" y="190" width="80" height="210" rx="4" fill="#2F5D4F" opacity="0.18"/>
+    <text x="0" y="270" text-anchor="middle" fill="#2F5D4F" font-size="42" font-weight="700" opacity="0.35">J</text>
+
+    <line x1="-52" y1="250" x2="52" y2="250" stroke="#2F5D4F" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+    <g transform="translate(62, 250)">
+      <rect x="0" y="-11" width="64" height="22" rx="3" fill="#2F5D4F"/>
+      <text x="32" y="4" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="600">VETO 0.50</text>
+    </g>
+
+    <text x="-52" y="290" fill="#2F5D4F" font-size="9" opacity="0.7">J &lt; 0.50</text>
+    <text x="-52" y="302" fill="#2F5D4F" font-size="9" opacity="0.7">= Ausschluss</text>
+
+    <text x="0" y="430" text-anchor="middle" fill="#2F5D4F" font-size="16" font-weight="700">J</text>
+    <text x="0" y="450" text-anchor="middle" fill="#2F5D4F" font-size="11" font-weight="500">Just</text>
+    <text x="0" y="466" text-anchor="middle" fill="#2F5D4F" font-size="10" opacity="0.8">Verteilungsgerecht</text>
+  </g>
+
+  <text x="400" y="494" text-anchor="middle" fill="#9CA3A0" font-size="10" font-style="italic">Linearkombination mit positiven Gewichten — J-Veto kippt den Gesamtscore unabhängig von S, E, C</text>
+
+</svg>

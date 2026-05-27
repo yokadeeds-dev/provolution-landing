@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+
+const modules = [
+  { id: 'PS-U', name: 'Probatio Systemica Universal', object: 'Maßnahme / System', question: 'Systemisch tragfähig?' },
+  { id: 'PV', name: 'Probatio Veritatis', object: 'Faktischer Claim', question: 'Empirisch haltbar?' },
+  { id: 'PD', name: 'Probatio Deliberativa', object: 'Politische Entscheidung', question: 'Prozessual SEC-J-konform?' },
+  { id: 'PI', name: 'Probatio Institutionalis', object: 'Institution', question: 'Anspruch = Realität?' },
+  { id: 'PN', name: 'Probatio Narrativa', object: 'Mediendiskurs', question: 'Wer spricht, wer fehlt?' },
+  { id: 'PP', name: 'Probatio Philosophica', object: 'Philosophisches Argument', question: 'Logisch konsistent?' },
+  { id: 'PT', name: 'Probatio Temporalis', object: 'Zeit / Score-Drift', question: 'Hat sich die Lage verändert?' },
+];
+---
+<Base title="Probatio Systemica" description="Probatio Systemica — neutrales mathematisches Framework zur systemischen Verifikation. Die methodische Grundlage von Provolution.">
+  <section class="hero">
+    <div class="wrap">
+      <div class="tag">Methodik</div>
+      <h1>Probatio Systemica</h1>
+      <p class="subtitle">Ein neutrales, mathematisch fundiertes Framework zur systemischen Verifikation komplexer Maßnahmen. Universell anwendbar, kulturunabhängig, nicht klimaspezifisch.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <h2>Übersicht und Abgrenzung</h2>
+    <p>Probatio Systemica (PS) ist die methodische Grundlage von Provolution. Sie formalisiert das SEC-J-Prinzip (Sufficient, Efficient, Consistent, Just) als allgemein anwendbares Werkzeug zur Bewertung von Maßnahmen, Institutionen, Aussagen und Entscheidungen &mdash; nicht beschränkt auf den Klima-Kontext.</p>
+
+    <div class="note">
+      <strong>Wichtige Abgrenzung:</strong> Provolution ist <em>eine Anwendung</em> von Probatio Systemica, nicht umgekehrt. PS ist das Werkzeug, Provolution die domain-spezifische Anwendung auf Klimatransformation. PS kann ebenso auf Gesundheitspolitik, Bildungsreformen oder Infrastrukturentscheidungen angewendet werden.
+    </div>
+
+    <p>Das Framework ist explizit nicht ideologisch und enthält keine Werturteile. Es beschreibt, <em>welche</em> Eigenschaften systemische Tragfähigkeit ausmachen, und stellt die mathematische Apparatur bereit, um diese Eigenschaften messbar und überprüfbar zu machen.</p>
+
+    <h2>Die PS-Familie (sieben Module)</h2>
+    <p>PS ist modular aufgebaut. Jedes Modul wendet die SEC-J-Logik auf einen anderen Prüfgegenstand an. Alle Module teilen dieselbe mathematische Basis und unterscheiden sich nur in Prüfobjekt, Gewichtung und Verdict-Schema.</p>
+
+    <figure class="concept-figure">
+      <img src="/figures/concepts/provolution-ps-family-architecture.svg" alt="Probatio Systemica Modularchitektur: PS-U zentral, sechs Module im Orbit, VFP als Eingangsfilter und MMM als optionale Skalierungsprüfung" loading="lazy" />
+    </figure>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Modul</th>
+          <th>Voller Name</th>
+          <th>Prüfobjekt</th>
+          <th>Kernfrage</th>
+        </tr>
+      </thead>
+      <tbody>
+        {modules.map(m => (
+          <tr>
+            <td><code>{m.id}</code></td>
+            <td>{m.name}</td>
+            <td>{m.object}</td>
+            <td>{m.question}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h2>Architektur: VFP und MMM</h2>
+    <p>Zwei methodische Bausteine ziehen sich durch alle PS-Module:</p>
+
+    <h3>VFP &mdash; Vorfilter-Protokoll</h3>
+    <p>Eintrittscheck für jedes Modul. Klärt drei Fragen vor jeder Prüfung: Ist die Einheit eindeutig? Ist der Gegenstand überhaupt prüfbar? In welcher Domäne befinden wir uns? VFP ist immer aktiv und übernimmt die Gatekeeper-Funktion &mdash; ohne sauber definierte Eingabe keine valide Prüfung.</p>
+
+    <h3>MMM &mdash; Mikro-Makro-Matching</h3>
+    <p>Skalierungs-Logikprüfung. Verifiziert, dass eine auf Mikroebene gültige Konsistenz auch auf Makroebene gilt &mdash; und umgekehrt. MMM wird aktiviert bei kleinen Stichproben (n&nbsp;&lt;&nbsp;3), bei kausalen Skalenbrüchen oder bei der Integration neuer Hebel-Kandidaten. Wichtig: MMM ist ein Logik-Werkzeug, kein Quellen-Verifikator &mdash; das übernimmt PV.</p>
+
+    <h2>Modulare Zusammenarbeit</h2>
+    <p>In der Praxis arbeiten mehrere Module ineinander: PS-U liefert die Bewertung einer Maßnahme, PV verifiziert die zugrundeliegenden empirischen Behauptungen, PD prüft den Entscheidungsprozess, PT überwacht die Score-Drift über die Zeit. Jedes Modul ist eigenständig nutzbar, gewinnt aber an Aussagekraft im Verbund.</p>
+
+    <p>Die vollständige Spezifikation aller Module, ihrer Formeln und Verdict-Schemata findet sich in den CANON-Dokumenten &mdash; insbesondere in Band&nbsp;1 (SEC-J-Kanon), Band&nbsp;3 (Scientific Core) und in <a href="https://github.com/yokadeeds-dev/Provolution/blob/main/canon/de/00_PS_Familie_Uebersicht.md" rel="noopener" target="_blank">PS-Familie-Übersicht</a>.</p>
+  </div>
+</Base>
