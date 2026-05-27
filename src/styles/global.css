@@ -451,6 +451,32 @@ figcaption {
   text-align: center;
 }
 
+/* CONCEPT FIGURE — Cowork-SVGs in heller Box, auch im Dark-Mode lesbar */
+.concept-figure {
+  margin: var(--space-4) 0;
+  padding: var(--space-3);
+  background: #FAFAFA;
+  border: 1px solid #E5E7E6;
+  border-radius: 6px;
+  max-width: var(--max-w);
+}
+
+.concept-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .concept-figure {
+    background: #F5F6F5;
+    border-color: #D4D8D6;
+  }
+}
+
 /* AKTUELLES ENTRY */
 .entry {
   padding: var(--space-3) 0;
