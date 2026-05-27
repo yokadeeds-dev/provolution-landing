@@ -41,23 +41,23 @@
   <circle cx="144.12" cy="230" r="4" fill="#2F5D4F"/>
 
   <!-- Labels -->
-  <text x="300" y="118" text-anchor="middle" fill="#1A1A1A" font-size="12" font-weight="600">GHG Accounting</text>
-  <text x="300" y="132" text-anchor="middle" fill="#9CA3A0" font-size="9">CO2, CH4, N2O, F-Gase</text>
+  <text x="300" y="118" text-anchor="middle" fill="#1A1A1A" font-size="12" font-weight="600">Treibhausgas-Bilanz</text>
+  <text x="300" y="132" text-anchor="middle" fill="#9CA3A0" font-size="9">CO₂, Methan, Lachgas, F-Gase</text>
 
-  <text x="478" y="218" text-anchor="start" fill="#1A1A1A" font-size="12" font-weight="600">Environmental</text>
-  <text x="478" y="232" text-anchor="start" fill="#9CA3A0" font-size="9">Wasser, Land, Biodiversität</text>
+  <text x="478" y="218" text-anchor="start" fill="#1A1A1A" font-size="12" font-weight="600">Umwelt</text>
+  <text x="478" y="232" text-anchor="start" fill="#9CA3A0" font-size="9">Wasser, Fläche, Artenvielfalt</text>
 
-  <text x="478" y="416" text-anchor="start" fill="#1A1A1A" font-size="12" font-weight="600">Social &amp; Equity</text>
-  <text x="478" y="430" text-anchor="start" fill="#9CA3A0" font-size="9">Verteilung, Co-Benefits, Jobs</text>
+  <text x="478" y="416" text-anchor="start" fill="#1A1A1A" font-size="12" font-weight="600">Soziales &amp; Verteilung</text>
+  <text x="478" y="430" text-anchor="start" fill="#9CA3A0" font-size="9">Wer zahlt, wer profitiert</text>
 
-  <text x="300" y="526" text-anchor="middle" fill="#1A1A1A" font-size="12" font-weight="600">Energy &amp; Rebound</text>
-  <text x="300" y="540" text-anchor="middle" fill="#9CA3A0" font-size="9">Energiebilanz, Rebound-Adjustment</text>
+  <text x="300" y="526" text-anchor="middle" fill="#1A1A1A" font-size="12" font-weight="600">Energie &amp; Rebound</text>
+  <text x="300" y="540" text-anchor="middle" fill="#9CA3A0" font-size="9">Energiebilanz, Rückkopplungs-Effekte</text>
 
-  <text x="122" y="416" text-anchor="end" fill="#1A1A1A" font-size="12" font-weight="600">Governance</text>
-  <text x="122" y="430" text-anchor="end" fill="#9CA3A0" font-size="9">Greenwashing-Schutz, Compliance</text>
+  <text x="122" y="416" text-anchor="end" fill="#1A1A1A" font-size="12" font-weight="600">Steuerung &amp; Regulatorik</text>
+  <text x="122" y="430" text-anchor="end" fill="#9CA3A0" font-size="9">Greenwashing-Schutz, Vorschriften</text>
 
-  <text x="122" y="218" text-anchor="end" fill="#1A1A1A" font-size="12" font-weight="600">Systemic Pathways</text>
-  <text x="122" y="232" text-anchor="end" fill="#9CA3A0" font-size="9">Szenarien, Lock-in, Carbon Budget</text>
+  <text x="122" y="218" text-anchor="end" fill="#1A1A1A" font-size="12" font-weight="600">Systempfade</text>
+  <text x="122" y="232" text-anchor="end" fill="#9CA3A0" font-size="9">Szenarien, Lock-in, CO₂-Budget</text>
 
   <!-- Legend -->
   <g transform="translate(300, 574)">
