@@ -1,0 +1,26 @@
+---
+const { pathname } = Astro.url;
+const isActive = (href: string) => {
+  if (href === '/') return pathname === '/' || pathname === '';
+  return pathname === href || pathname.startsWith(href + '/');
+};
+const nav = [
+  { href: '/provolution', label: 'Provolution' },
+  { href: '/probatio-systemica', label: 'Probatio Systemica' },
+  { href: '/wissenschaft', label: 'Wissenschaft' },
+  { href: '/ueber', label: 'Über' },
+  { href: '/aktuelles', label: 'Aktuelles' },
+];
+---
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="brand" aria-label="Provolution Startseite">PROVOLUTION</a>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      {nav.map(item => (
+        <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
