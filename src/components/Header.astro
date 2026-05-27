@@ -1,4 +1,6 @@
 ---
+import Wordmark from './Wordmark.astro';
+
 const { pathname } = Astro.url;
 const isActive = (href: string) => {
   if (href === '/') return pathname === '/' || pathname === '';
@@ -14,7 +16,9 @@ const nav = [
 ---
 <header class="site-header">
   <div class="wrap">
-    <a href="/" class="brand" aria-label="Provolution Startseite">PROVOLUTION</a>
+    <a href="/" class="brand" aria-label="Provolution Startseite">
+      <Wordmark />
+    </a>
     <nav class="main-nav" aria-label="Hauptnavigation">
       {nav.map(item => (
         <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
