@@ -1,0 +1,19 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  frontmatter?: any;
+}
+
+const props = Astro.props as Props;
+const fm = props.frontmatter ?? {};
+const title = props.title ?? fm.title ?? 'Lesefassung';
+const description = props.description ?? fm.description ?? 'Lesefassung des Provolution-Frameworks — eine Hanfspur durch die Welt.';
+---
+<Base title={title} description={description}>
+  <article class="lesbar-prose">
+    <slot />
+  </article>
+</Base>

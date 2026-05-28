@@ -1,0 +1,70 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const kapitel = [
+  {
+    href: '/lesbar/kern',
+    nr: '00',
+    titel: 'Der innerste Kern',
+    bild: 'Eine Hanfspur durch die Welt',
+    beschreibung: 'Das große Bild, das alles zusammenhält — eine wandernde Hanfspur, die Boden heilt, Material liefert und neue Wälder hinterlässt.',
+  },
+  {
+    href: '/lesbar/material',
+    nr: '01',
+    titel: 'Material',
+    bild: 'Ein Stein in der Hand',
+    beschreibung: 'Ein LEGO-Stein als Maßstab für die Material-Wirtschaft — vom Erdöl-Klötzchen zum CO₂-Tresor aus Hanf.',
+  },
+  {
+    href: '/lesbar/gebaeude',
+    nr: '02',
+    titel: 'Gebäude',
+    bild: 'Die Wand, an der wir sitzen',
+    beschreibung: 'Klima- und Wohnungskrise im gleichen Sektor — eine Antwort: Hempcrete-Wände und modulares Bauen.',
+  },
+  {
+    href: '/lesbar/energie',
+    nr: '03',
+    titel: 'Energie',
+    bild: 'Was an der Steckdose hängt',
+    beschreibung: 'Die vier Hebel der Energie-Wende, an einer Steckdose entfaltet — von der Sonne bis zur eigenen Hand am Schalter.',
+  },
+  {
+    href: '/lesbar/ernaehrung',
+    nr: '04',
+    titel: 'Ernährung & Landnutzung',
+    bild: 'Eine Handvoll Erde',
+    beschreibung: 'Vier Hebel für Boden-Regeneration und Land-Nutzung, an einer Handvoll Erde entfaltet.',
+  },
+];
+---
+<Base title="Lesefassung — Provolution" description="Lesefassung der Provolution in fünf Kapiteln — eine Hanfspur durch die Welt, ein Stein in der Hand, eine Wand, eine Steckdose, eine Handvoll Erde.">
+  <section class="hero">
+    <div class="wrap">
+      <div class="tag">Lesefassung</div>
+      <h1>Eine Hanfspur durch die Welt</h1>
+      <p class="subtitle">Die Provolution in zugänglicher Sprache, an konkreten Bildern entfaltet. Fünf Kapitel — jedes mit einem einzigen Bild, das durchgehalten wird, statt zwischen Beispielen zu wechseln.</p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <p style="max-width: var(--measure);">Die wissenschaftliche Linie der Provolution ist in der <a href="/provolution">Framework-Übersicht</a> dokumentiert. Hier kommt es darauf an, dass Menschen, die keine Wissenschaftler:innen sind, sich vorstellen können, worum es geht. Beginnen Sie idealerweise mit dem <strong>Kern</strong> — er trägt das große Bild —, und gehen Sie dann in die einzelnen Domain-Kapitel, die jeweils ein Mikro-Bild durchspielen.</p>
+
+    <h2>Die fünf Kapitel</h2>
+    <div class="card-grid">
+      {kapitel.map(k => (
+        <article class="card">
+          <h3><a href={k.href} style="color: var(--accent); text-decoration: none;">{k.nr} · {k.titel}</a></h3>
+          <p style="font-style: italic; color: var(--muted); margin-bottom: 0.6rem;">{k.bild}</p>
+          <p>{k.beschreibung}</p>
+          <a href={k.href} class="more">Lesen &rarr;</a>
+        </article>
+      ))}
+    </div>
+
+    <h2 style="margin-top: var(--space-5);">Verhältnis zur wissenschaftlichen Linie</h2>
+    <p>Diese Lesefassung ersetzt nicht die wissenschaftliche Dokumentation der Provolution — sie ist eine parallele Erzähl-Schicht. Jede Aussage darin ist im Kanon belegt (Band 4, Extensions E11/E12, STUB-Files). Wer tiefer in Methodik, SEC-J-Bewertung oder Quellen einsteigen möchte, wechselt über den Modus-Schalter oben rechts auf die wissenschaftliche Linie.</p>
+    <p>Der Modus-Schalter merkt sich Ihre Wahl. Beim nächsten Besuch landet man wieder dort, wo man zuletzt war.</p>
+  </section>
+</Base>
