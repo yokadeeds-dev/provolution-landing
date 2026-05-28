@@ -13,10 +13,20 @@ const fullTitle = title === 'Provolution' ? 'Provolution' : `${title} · Provolu
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://provolution.org').href;
 ---
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-mode="lesbar">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script is:inline>
+    (function() {
+      try {
+        var saved = localStorage.getItem('provolution-mode');
+        if (saved === 'wissenschaftlich' || saved === 'lesbar') {
+          document.documentElement.setAttribute('data-mode', saved);
+        }
+      } catch (e) { /* localStorage blocked */ }
+    })();
+  </script>
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />

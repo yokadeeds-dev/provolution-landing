@@ -6,12 +6,21 @@ const isActive = (href: string) => {
   if (href === '/') return pathname === '/' || pathname === '';
   return pathname === href || pathname.startsWith(href + '/');
 };
-const nav = [
+
+const navWiss = [
   { href: '/provolution', label: 'Provolution' },
   { href: '/probatio-systemica', label: 'Probatio Systemica' },
   { href: '/wissenschaft', label: 'Wissenschaft' },
   { href: '/ueber', label: 'Über' },
   { href: '/aktuelles', label: 'Aktuelles' },
+];
+
+const navLesbar = [
+  { href: '/lesbar/kern', label: 'Der Kern' },
+  { href: '/lesbar/material', label: 'Material' },
+  { href: '/lesbar/gebaeude', label: 'Gebäude' },
+  { href: '/lesbar/energie', label: 'Energie' },
+  { href: '/lesbar/ernaehrung', label: 'Ernährung' },
 ];
 ---
 <header class="site-header">
@@ -19,12 +28,38 @@ const nav = [
     <a href="/" class="brand" aria-label="Provolution Startseite">
       <Wordmark />
     </a>
-    <nav class="main-nav" aria-label="Hauptnavigation">
-      {nav.map(item => (
+
+    <nav class="main-nav nav-set nav-wiss" aria-label="Hauptnavigation, wissenschaftliche Linie">
+      {navWiss.map(item => (
         <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
           {item.label}
         </a>
       ))}
     </nav>
+
+    <nav class="main-nav nav-set nav-lesbar" aria-label="Hauptnavigation, lesbare Linie">
+      {navLesbar.map(item => (
+        <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="mode-toggle" role="group" aria-label="Darstellungs-Modus wählen">
+      <button type="button" data-target="lesbar" aria-label="Lesbare Darstellung aktivieren">Lesbar</button>
+      <button type="button" data-target="wissenschaftlich" aria-label="Wissenschaftliche Darstellung aktivieren">Wissenschaftlich</button>
+    </div>
   </div>
 </header>
+<script is:inline>
+  (function() {
+    document.querySelectorAll('.mode-toggle button').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var target = btn.getAttribute('data-target');
+        if (!target) return;
+        document.documentElement.setAttribute('data-mode', target);
+        try { localStorage.setItem('provolution-mode', target); } catch (e) {}
+      });
+    });
+  })();
+</script>
