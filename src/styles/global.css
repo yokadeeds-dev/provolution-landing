@@ -1,11 +1,11 @@
 :root {
-  --bg: #FFFFFF;
-  --bg-alt: #F7F8F7;
-  --fg: #1A1A1A;
-  --muted: #5C6360;
-  --rule: #E0E2E0;
-  --accent: #2F5D4F;
-  --accent-soft: #E8EFEB;
+  --bg: #F4F7EC;
+  --bg-alt: #E8EED8;
+  --fg: #1F2A1A;
+  --muted: #4D5F40;
+  --rule: #D0DABC;
+  --accent: #4A7A2E;
+  --accent-soft: #D9E5C0;
   --max-w: 980px;
   --measure: 64ch;
   --space-1: 0.5rem;
@@ -792,15 +792,15 @@ figcaption {
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #14171A;
-    --bg-alt: #1B1F23;
-    --fg: #E8EAED;
-    --muted: #9098A0;
-    --rule: #2A2F35;
-    --accent: #6FB99A;
-    --accent-soft: #1F2C28;
+    --bg: #1F2A1A;
+    --bg-alt: #28341F;
+    --fg: #E2E8D6;
+    --muted: #9AAB85;
+    --rule: #3A4530;
+    --accent: #8FBC4D;
+    --accent-soft: #2A3820;
   }
-  .site-header { background: rgba(20, 23, 26, 0.92); }
+  .site-header { background: rgba(31, 42, 26, 0.92); }
   figure img { background: var(--bg-alt); }
   /* Im Dark-Mode ist --accent ein helles Mintgrün; weiße Schrift hätte
      darauf nur ~2.1:1 Kontrast. Stattdessen mit dunklem Text auf hellem
