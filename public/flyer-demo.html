@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Provolution Flyer · Eine Hanfspur durch die Welt</title>
+<style>
+  /* === FARBPALETTE (identisch zur Website) === */
+  :root {
+    --bg: #F4F7EC;
+    --bg-alt: #E8EED8;
+    --fg: #1F2A1A;
+    --muted: #4D5F40;
+    --rule: #D0DABC;
+    --accent: #4A7A2E;
+    --accent-soft: #D9E5C0;
+  }
+
+  /* === DRUCK-LAYOUT === */
+  @page {
+    size: A5;
+    margin: 0;
+  }
+
+  @media print {
+    body { background: var(--bg); padding: 0; }
+    .page {
+      page-break-after: always;
+      width: 148mm;
+      height: 210mm;
+      margin: 0;
+      box-shadow: none;
+    }
+    .page:last-child { page-break-after: auto; }
+    .print-hide { display: none !important; }
+  }
+
+  /* === BILDSCHIRM-VORSCHAU === */
+  @media screen {
+    body {
+      background: #888;
+      padding: 20px 0;
+    }
+    .page {
+      width: 148mm;
+      height: 210mm;
+      margin: 0 auto 16px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    background: var(--bg);
+    color: var(--fg);
+    padding: 14mm 13mm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* === COVER === */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 18mm 13mm;
+  }
+
+  .cover .tag {
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    margin-bottom: 8mm;
+  }
+
+  .cover h1 {
+    font-size: 38pt;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--fg);
+    margin: 0;
+  }
+
+  .cover .accent-line {
+    width: 30mm;
+    height: 3pt;
+    background: var(--accent);
+    margin: 6mm 0;
+  }
+
+  .cover .subtitle {
+    font-size: 16pt;
+    color: var(--accent);
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 4mm;
+  }
+
+  .cover .lead {
+    font-size: 11pt;
+    color: var(--muted);
+    line-height: 1.5;
+    max-width: 90mm;
+  }
+
+  .cover .demo-banner {
+    background: var(--accent);
+    color: var(--bg);
+    padding: 4mm 5mm;
+    font-size: 10pt;
+    font-weight: 500;
+    border-radius: 2pt;
+    margin-top: 6mm;
+    align-self: flex-start;
+  }
+
+  .cover .footer-mark {
+    font-size: 9pt;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* === INHALTS-SEITEN === */
+  .page-tag {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-bottom: 3mm;
+  }
+
+  .page h2 {
+    font-size: 22pt;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    margin-bottom: 5mm;
+  }
+
+  .page h2 .accent {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .page .lead {
+    font-size: 11.5pt;
+    color: var(--fg);
+    line-height: 1.55;
+    margin-bottom: 4mm;
+  }
+
+  .page p {
+    font-size: 10.5pt;
+    margin-bottom: 3mm;
+    color: var(--fg);
+  }
+
+  .page p.muted {
+    color: var(--muted);
+    font-size: 10pt;
+  }
+
+  .page ul {
+    list-style: none;
+    padding: 0;
+    margin: 3mm 0;
+  }
+
+  .page ul li {
+    padding-left: 6mm;
+    position: relative;
+    font-size: 10pt;
+    margin-bottom: 2.2mm;
+    line-height: 1.5;
+    color: var(--fg);
+  }
+
+  .page ul li::before {
+    content: "";
+    width: 2.5mm;
+    height: 2.5mm;
+    background: var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 2.5mm;
+  }
+
+  .page strong { color: var(--fg); font-weight: 600; }
+  .page em { color: var(--accent); font-style: normal; font-weight: 500; }
+
+  .page .key-data {
+    background: var(--accent-soft);
+    border-left: 3pt solid var(--accent);
+    padding: 4mm 5mm;
+    margin: 4mm 0;
+    border-radius: 2pt;
+  }
+
+  .page .key-data .number {
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    display: block;
+  }
+
+  .page .key-data .label {
+    font-size: 9pt;
+    color: var(--muted);
+    margin-top: 1mm;
+    display: block;
+    line-height: 1.4;
+  }
+
+  .page-footer {
+    position: absolute;
+    bottom: 8mm;
+    left: 13mm;
+    right: 13mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.5pt;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* === RÜCKSEITE === */
+  .back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 14mm 13mm;
+  }
+
+  .back .qr-box {
+    background: var(--bg-alt);
+    padding: 8mm;
+    border-radius: 3pt;
+    margin-bottom: 8mm;
+  }
+
+  .back .qr-box img {
+    width: 60mm;
+    height: 60mm;
+    display: block;
+  }
+
+  .back h2 {
+    font-size: 18pt;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 4mm;
+    color: var(--fg);
+  }
+
+  .back .url {
+    font-size: 13pt;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 6mm;
+  }
+
+  .back .small {
+    font-size: 9pt;
+    color: var(--muted);
+    line-height: 1.5;
+    max-width: 95mm;
+  }
+
+  .back .imprint {
+    margin-top: 10mm;
+    font-size: 7.5pt;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* === BROWSER-HILFE === */
+  .print-help {
+    background: #1F2A1A;
+    color: #F4F7EC;
+    padding: 14px 22px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .print-help b { color: #8FBC4D; }
+  @media print { .print-help { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="print-help print-hide">
+  <b>Hinweis zum Drucken:</b> Im Browser auf <b>Drucken</b> (Strg/Cmd+P) gehen, Ziel auf <b>"Als PDF speichern"</b>, Format <b>A5</b>, Ränder <b>Standard/Keine</b>, Hintergrundgrafik <b>aktivieren</b>. Die fertige PDF zum Copyshop oder Online-Druck (Saxoprint, WIRmachenDRUCK etc.) schicken — Format A5, klammergeheftet.
+</div>
+
+<!-- SEITE 1: COVER -->
+<div class="page cover">
+  <div>
+    <div class="tag">Provolution · Lesefassung</div>
+    <h1>Eine<br/>Hanf­spur<br/>durch<br/>die Welt</h1>
+    <div class="accent-line"></div>
+    <div class="subtitle">Vom Boden bis zur Atmosphäre — eine Antwort auf die fossile Industrie.</div>
+    <div class="lead">Was eine einzige Pflanze auslösen kann, wenn man sie als System denkt: Boden heilen, Material liefern, Kohlenstoff speichern, neue Wälder hinterlassen.</div>
+    <div class="demo-banner">Begleit-Heft zur Anti-Gas-Demo · 31. Mai 2026</div>
+  </div>
+  <div class="footer-mark">provolution.org</div>
+</div>
+
+<!-- SEITE 2: ERÖFFNUNG -->
+<div class="page">
+  <div class="page-tag">Eröffnung</div>
+  <h2>Diese Demo zeigt, was wir <em>nicht</em> wollen.<br/>Hier ist, was wir wollen können.</h2>
+  <p class="lead">Eine Anti-Gaskraftwerk-Demo ist die richtige Schnittmenge. Hinter neuen Gaskraftwerken steht dieselbe Logik wie hinter fast allem, was uns die Atmosphäre aufheizt: fossiler Untergrund wird in wenigen Jahrzehnten in die Luft entlassen.</p>
+  <p>Die <strong>Provolution</strong> ist die wissenschaftlich gerahmte Antwort auf genau diese Logik — ein Katalog von 32 ausgearbeiteten Hebeln über zehn Lebensbereiche, bewertet nach einer Methodik, die soziale Gerechtigkeit als Veto-Kriterium führt: Maßnahmen, die Ungleichheit verstärken, sind unzulässig, egal wie gut sie sonst sind.</p>
+  <p>Dieses Heft zeigt den <em>innersten Kern</em> dieses Frameworks — die wandernde Hanfspur, an der alle anderen Hebel hängen.</p>
+  <div class="key-data">
+    <span class="number">−52 Gt</span>
+    <span class="label">CO₂-Reduktion pro Jahr bei voller Umsetzung des Hebel-Katalogs — mehr als die heutigen globalen CO₂-Emissionen, also netto-negativ.</span>
+  </div>
+  <p class="muted">Vollständige Lesefassung mit allen Details: provolution.org/lesbar/kern (siehe QR-Code letzte Seite).</p>
+  <div class="page-footer"><span>Provolution</span><span>S. 2 / 8</span></div>
+</div>
+
+<!-- SEITE 3: BODEN -->
+<div class="page">
+  <div class="page-tag">Hanf · der Boden</div>
+  <h2>Eine Pflanze, <em>die Böden heilt</em></h2>
+  <p class="lead">Industriehanf wächst in hundert Tagen drei bis vier Meter hoch. Auf dem Weg dahin tut er Dinge, die heutige Landwirtschaft mit Maschinen und Chemie versucht — nur effizienter, leiser und ohne Nebenwirkungen.</p>
+  <ul>
+    <li><strong>Wurzelt tief</strong> und lockert verdichtete Böden, die kein Pflug erreicht.</li>
+    <li><strong>Beschattet Unkraut weg</strong> — keine Herbizide nötig, kaum Insektizide.</li>
+    <li><strong>Halbe Wasser-Bilanz</strong> verglichen mit Baumwolle.</li>
+    <li><strong>9–15 Tonnen CO₂ pro Hektar</strong> Bindung in einer einzigen Ernte.</li>
+    <li>In milden Klimazonen <strong>2–3 Ernten pro Jahr</strong> auf derselben Fläche.</li>
+    <li>Nach 1–3 Jahren: <strong>messbar besserer Boden</strong>. Bei Schwermetall-Belastung 2–5 Vegetationsperioden zur Sanierung — <em>Phytoremediation</em>.</li>
+  </ul>
+  <p>Drei Anbau-Modi, je nach Bodenzustand: <strong>Material-Gleis</strong> (gesund → volle Ernte zur Wertschöpfung), <strong>Heiler-Gleis</strong> (erschöpft → bleibt liegen, baut Humus auf), <strong>Sanierer-Gleis</strong> (kontaminiert → wird abgetragen und in Pyrolyse zu Biochar).</p>
+  <p class="muted">Die Pflanze als Bodenärztin — wandernd, je nach dem, was der Boden gerade braucht.</p>
+  <div class="page-footer"><span>Hebel D15 / D16 / D17</span><span>S. 3 / 8</span></div>
+</div>
+
+<!-- SEITE 4: MATERIAL -->
+<div class="page">
+  <div class="page-tag">Hanf · das Material</div>
+  <h2>Ein LEGO-Stein aus Hanf <em>ist ein CO₂-Tresor</em></h2>
+  <p class="lead">Plastik ist fossil — und ist es zweifach. Bei der Förderung und Raffinerie entweicht CO₂. Beim Verbrennen oder Zerfall am Lebensende noch einmal. Ein Plastik-LEGO-Stein ist ein winziges Erdgas-Speicher mit Zeitkapsel.</p>
+  <p>Der gleiche Stein aus Hanf-Biokunststoff macht das Gegenteil — auch zweifach: Seine Herstellung verbraucht einen Bruchteil der Energie, weil die Pflanze von selbst wächst. Und der Kohlenstoff, den die Pflanze beim Wachsen aus der Luft holte, bleibt eingeschlossen, solange das Klötzchen existiert.</p>
+  <div class="key-data">
+    <span class="number">75 Mrd.</span>
+    <span class="label">LEGO-Steine pro Jahr weltweit. Multipliziert mit allen Plastikteilen aller Hauswände aller Autos: jede Verpackung, jeder Stift, jede Folie kann ein Pflanzen-Speicher werden statt eines Erdöl-Speichers.</span>
+  </div>
+  <ul>
+    <li><strong>−70%</strong> CO₂-Fußabdruck Hanf-Biopolymer gegenüber PE/PET.</li>
+    <li><strong>2,5–3 Gt CO₂/Jahr</strong> bei globalem Ersatz des Plastik-Bedarfs durch Hanf-Biopolymere.</li>
+    <li>Bei Verrotten in der Natur: <strong>Humus statt Mikroplastik</strong>.</li>
+  </ul>
+  <p class="muted">Vom Klötzchen zur Brotdose zum Türverkleidungsteil zum Schiffsseil — derselbe Stoff, dasselbe Prinzip, andere Form.</p>
+  <div class="page-footer"><span>Hebel B07 / B08 / B13</span><span>S. 4 / 8</span></div>
+</div>
+
+<!-- SEITE 5: GEBÄUDE -->
+<div class="page">
+  <div class="page-tag">Hanf · das Gebäude</div>
+  <h2>Eine Wand, die <em>das Klima kühlt</em></h2>
+  <p class="lead">Der Bausektor verursacht 37–40 % der globalen Treibhausgase. Zement allein 8 %. Jede normale Wand bringt 12–25 Tonnen CO₂ in die Atmosphäre, bevor jemand einzieht.</p>
+  <p>Hempcrete dreht das um: Beim Wachstum holt die Hanfpflanze CO₂ aus der Luft, und in der Wand bleibt es. Pro Kubikmeter <strong>minus 130 kg CO₂</strong>. Die Wand <em>speichert</em>, statt zu emittieren.</p>
+  <div class="key-data">
+    <span class="number">+380 kg</span>
+    <span class="label">CO₂-Unterschied pro Kubikmeter Wand: Portland-Beton emittiert ~250 kg, Hempcrete bindet ~130 kg. Bei einem normalen Haus rund 30 Tonnen Differenz — durch eine einzige Materialentscheidung.</span>
+  </div>
+  <ul>
+    <li><strong>24× besser</strong> dämmend als Beton — keine Styropor-Schicht nötig.</li>
+    <li><strong>7× leichter</strong> — schimmelresistent, atmend, schwer entflammbar.</li>
+    <li><strong>Modular vorfertigbar</strong> wie große LEGO-Steine: Häuser in 4 Wochen statt 18 Monaten.</li>
+  </ul>
+  <p class="muted">Klimakrise und Wohnungskrise treffen denselben Sektor. Hempcrete-Modulbauweise löst beide gleichzeitig.</p>
+  <div class="page-footer"><span>Hebel J01</span><span>S. 5 / 8</span></div>
+</div>
+
+<!-- SEITE 6: ENERGIE -->
+<div class="page">
+  <div class="page-tag">Energie · die andere Seite</div>
+  <h2>Was hinter der Steckdose <em>sein könnte</em></h2>
+  <p class="lead">Der Strom, der heute aus der Steckdose kommt, ist immer noch zur Hälfte fossil. Vier Hebel — keiner davon Zukunftsmusik — würden das beenden.</p>
+  <ul>
+    <li><strong>Erneuerbare Integration</strong> · Solar/Wind sind heute günstiger als jedes neue Kohlekraftwerk. Bei 80 % Erneuerbaren-Anteil: <em>−15 Gt CO₂/Jahr</em>.</li>
+    <li><strong>Energie-Speicherung</strong> · Batterien, Pumpspeicher, Wasserstoff. Der heutige Engpass ist Speicherkapazität — lösbar, technisch wie wirtschaftlich.</li>
+    <li><strong>Smart Grids</strong> · Netze, die in Echtzeit lesen, statt blind Strom zu schieben. <em>−60 % Blackout-Risiko</em>, halbe Netzverluste.</li>
+    <li><strong>Dezentrale Versorgung</strong> · Dachsolar, Mikro-Grids, Community Energy. Verschiebt Macht von Großkonzernen zu lokalen Gemeinschaften.</li>
+  </ul>
+  <div class="key-data">
+    <span class="number">−16 Gt</span>
+    <span class="label">CO₂ pro Jahr global bei voller Umsetzung. Mehr als die heutigen Emissionen mehrerer großer Industrienationen zusammen.</span>
+  </div>
+  <p class="muted">Gaskraftwerke gehören in diese Bilanz auf die falsche Seite — sie verstärken genau das Problem, das die vier Hebel oben adressieren.</p>
+  <div class="page-footer"><span>Hebel C11 / C12 / C13 / C14</span><span>S. 6 / 8</span></div>
+</div>
+
+<!-- SEITE 7: WAS WEGFÄLLT -->
+<div class="page">
+  <div class="page-tag">Was nicht mehr gebraucht wird</div>
+  <h2>Die andere Seite <em>der Bilanz</em></h2>
+  <p class="lead">Was hinter der wandernden Hanfspur entsteht, wird auf der Gegenseite überflüssig. Das ist kein Nebeneffekt, sondern Kern der Logik.</p>
+  <ul>
+    <li><strong>Erdöl-Förderung für Plastik</strong> — schrumpft mit dem Anteil Hanf-Biopolymere. Tankerflotten, Raffinerien, Cracker werden überflüssig.</li>
+    <li><strong>Zementproduktion</strong> — verliert Marktanteile an Hempcrete. 8 % globaler Emissionen, ein einziger Wirtschaftszweig.</li>
+    <li><strong>Pestizid- und Herbizid-Industrie</strong> — schrumpft, weil Hanf in der Fruchtfolge ohne sie auskommt. Konzerne, die von Dauer-Monokultur lebten, verlieren ihren Markt.</li>
+    <li><strong>Globale Container-Schifffahrt</strong> für Massen-Standardware — wird ersetzbar durch lokale On-Demand-Fertigung mit Hanf-Filamenten.</li>
+    <li><strong>Mikroplastik-Problem</strong> — biologisch abbaubare Materialien verschwinden im Wald zu Humus, nicht in Wasserkreisläufen.</li>
+    <li><strong>Klimaanlagen-Bedarf</strong> — Hempcrete-Wände kühlen passiv.</li>
+  </ul>
+  <p>Im Zeitraffer sähe das aus wie eine grüne Welle, die sich von der Hanfspur aus in die Landschaft ausbreitet — fruchtbare Böden, Mischkulturen, neue Wälder, kühleres Mikroklima. Wo die Spur einmal war, ist die Landschaft anders geworden.</p>
+  <p class="muted">Henry Ford zeigte das schon 1941 mit einem Auto aus Pflanzenfasern — die Idee wurde nur vom Ölzeitalter überrollt. Die Provolution denkt sie als ganzes System zu Ende.</p>
+  <div class="page-footer"><span>Provolution · Gesamtbild</span><span>S. 7 / 8</span></div>
+</div>
+
+<!-- SEITE 8: RÜCKSEITE -->
+<div class="page back">
+  <h2>Weiterlesen,<br/>weiter denken,<br/><em>weiter geben.</em></h2>
+  <div class="qr-box">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https%3A%2F%2Fprovolution.org%2Flesbar%2Fkern&color=1F2A1A&bgcolor=F4F7EC&qzone=2" alt="QR-Code zu provolution.org/lesbar/kern" />
+  </div>
+  <div class="url">provolution.org/lesbar/kern</div>
+  <p class="small">Die vollständige Lesefassung in fünf Kapiteln: <em>Kern</em>, <em>Material</em>, <em>Gebäude</em>, <em>Energie</em>, <em>Ernährung</em>. Plus wissenschaftliche Linie für Forschung und Fachpraxis — Modus-Schalter auf der Seite.</p>
+  <div class="imprint">© 2026 · Provolution · Tobias Yoka Dietz · provolution.org</div>
+</div>
+
+</body>
+</html>
