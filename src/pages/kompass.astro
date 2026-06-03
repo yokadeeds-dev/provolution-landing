@@ -1,0 +1,119 @@
+---
+import Base from '../layouts/Base.astro';
+
+// 18 Slides aus der Provolution-Climate-Compass-Präsentation.
+// Reihenfolge entspricht der Original-Storyline (Hero -> Problem -> Lösung
+// -> SEC-J -> Domains -> Ergebnis -> Praxis -> Schluss).
+// Quelle: NotebookLM-generierte Präsentations-Bilder, Watermark
+// entfernt, zu WebP konvertiert (~100-200 KB pro Slide).
+const slides = [
+  { src: '/figures/kompass/slide-01.webp', alt: 'Titel-Bild: Provolution — Unser Kompass für die Klimatransformation. Wie wir mit System, Verstand und Gerechtigkeit wirksame Lösungen finden. Illustration eines Kompasses umgeben von Natur, Windrad, Stadt und Hochgeschwindigkeitszug.', caption: 'Provolution — Unser Kompass für die Klimatransformation.' },
+  { src: '/figures/kompass/slide-02.webp', alt: 'Das Problem: Der Dschungel der guten Ideen. Illustration verworrener Wegweiser mit Aufschriften wie Bauchgefühl, isolierte Einzelmaßnahmen, politischer Druck, Widerspruch, kurze Frist, nicht nachhaltig.', caption: 'Das Problem: Der Dschungel der guten Ideen. Wir haben unzählige Ideen zur Klimakrise, aber wie entscheiden wir, welche wirklich funktionieren?' },
+  { src: '/figures/kompass/slide-03.webp', alt: 'Die Lösung: Ein systematischer Kompass. Illustration eines Zirkels auf einem Blueprint mit Zahnrädern, Kreisringen und Lichtstrahlen.', caption: 'Die Lösung: Ein systematischer Kompass. Provolution ist keine Glaskugel, sondern ein objektiver Werkzeugkasten — ein Framework, das Lösungen systematisch prüft und ordnet.' },
+  { src: '/figures/kompass/slide-04.webp', alt: 'Der SEC-J-Filter: Vier Linsen für klare Entscheidungen. Vier farbige Bögen mit Symbolen für S (Wirksam, Zielscheibe), E (Wirtschaftlich, Geldpflanze), C (Widerspruchsfrei, Puzzle), J (Gerecht, Waage). Status: Bestanden.', caption: 'Der SEC-J-Filter: Vier Linsen für klare Entscheidungen. Jede Idee muss durch vier systematische Filter gehen — nur was alle vier Kriterien erfüllt, erhält den Status Bestanden.' },
+  { src: '/figures/kompass/slide-05.webp', alt: 'S — Wirksam: Erreicht es das Ziel? Illustration einer grünen Zielscheibe mit Pfeil im Zentrum.', caption: 'S — Wirksam: Erreicht es das Ziel? Eine Maßnahme muss das Problem in dem Maßstab lösen, der physikalisch erforderlich ist.' },
+  { src: '/figures/kompass/slide-06.webp', alt: 'E — Wirtschaftlich: Setzt es Ressourcen klug ein? Illustration einer wachsenden Pflanze, die aus einer goldenen Münze sprießt.', caption: 'E — Wirtschaftlich: Setzt es Ressourcen klug ein? Ressourcen wie Geld, Material und Zeit sind begrenzt — eine Maßnahme muss sie klug und sparsam einsetzen.' },
+  { src: '/figures/kompass/slide-07.webp', alt: 'C — Widerspruchsfrei: Passt es in das große Ganze? Illustration eines Puzzles, in das das letzte Teil leuchtend eingefügt wird.', caption: 'C — Widerspruchsfrei: Passt es in das große Ganze? Keine Maßnahme steht für sich allein — sie muss sich wie ein Puzzleteil ins Gesamtsystem einfügen.' },
+  { src: '/figures/kompass/slide-08.webp', alt: 'J — Gerecht: Ist der Übergang fair? Illustration einer Waage, gehalten von zwei Händen, mit Symbolen für Bürden und Nutzen auf den Schalen.', caption: 'J — Gerecht: Ist der Übergang fair? Eine Maßnahme darf verletzliche Gruppen nicht strukturell benachteiligen. Lasten und Nutzen müssen fair verteilt sein.' },
+  { src: '/figures/kompass/slide-09.webp', alt: 'Das J-Veto: Warum Fairness die Basis für Stabilität ist. Vergleich zwischen einem zerbrechlichen Tempel-System (drei Säulen S, E, C, gesellschaftlicher Widerstand bringt es zum Einsturz) und einem antifragilen System (vier Säulen S, E, C, J, gesellschaftlicher Widerstand wird absorbiert).', caption: 'Das J-Veto: Warum Fairness die Basis für Stabilität ist. Technisch korrekte Ideen scheitern, wenn sie gesellschaftlich nicht getragen werden — das J-Veto verhindert das vorab.' },
+  { src: '/figures/kompass/slide-10.webp', alt: 'Der Auswahlprozess: Vom Konzept zum Bestanden. Trichter mit vier farbigen Filter-Ebenen (S Funktioniert, E Finanzierbar, C Zusammenpassend, J Gerecht & Fair); aus chaotischen Eingangs-Formen entsteht ein geordneter Würfel mit Status Bestanden.', caption: 'Der Auswahlprozess: Vom Konzept zum Bestanden. Wenn man hunderte Ideen durch den SEC-J-Kompass filtert, bleibt nur das übrig, was wirklich funktioniert.' },
+  { src: '/figures/kompass/slide-11.webp', alt: 'Die Karte: 11 Domänen, 49 Hebel. Visualisierung als U-Bahn-Streckenplan — bunte Linien für Domänen wie Governance-Linie, Energie-Netz, Mobilitäts-Pfad, Bildungs-Route, Ernährungs-Pfad, Digital-Netz, Umwelt-Schleife, Infrastruktur-Kreis, mit zahlreichen Hebel-Stationen.', caption: 'Die Karte: 11 Domänen, 49 Hebel. Das Resultat des SEC-J-Filters ist ein vernetztes Portfolio — 49 konkrete Hebel, organisiert in 11 Domänen, die zusammen ein vollständiges System bilden.' },
+  { src: '/figures/kompass/slide-12.webp', alt: 'Das Ergebnis: Ein Systemisches Potenzial. Halbkreis-Diagramm aus farbigen Sektoren mit zentralem Wert: minus 58,6 Gt CO₂-Äquivalente pro Jahr. Hinweis-Banner: Dies ist keine Prognose, sondern das objektiv kalkulierte Potenzial eines funktionierenden Gesamtsystems.', caption: 'Das Ergebnis: Ein Systemisches Potenzial. Wenn alle 49 Hebel gemeinsam umgesetzt werden, ergibt sich ein berechnetes Potenzial von −58,6 Gt CO₂eq/Jahr (gescreent, keine Prognose).' },
+  { src: '/figures/kompass/slide-13.webp', alt: 'Entscheidungsfindung: Bauchgefühl vs. System. Tabellen-Vergleich Status Quo gegen Provolution-Framework auf vier Achsen — Auswahl, Fokus, Gerechtigkeit, Ergebnis.', caption: 'Entscheidungsfindung: Bauchgefühl vs. System. Vom subjektiv-politischen Bauchgefühl mit häufigen Fehlschlägen zum objektiv-vernetzten Gesamtsystem mit klarem J-Veto.' },
+  { src: '/figures/kompass/slide-14.webp', alt: 'In der Praxis: Kreislaufwirtschaft (Hebel B07). Status Bestanden. Vier Vorteils-Kreise: reduziert Abfall und CO₂, senkt langfristig Materialkosten, liefert Rohstoffe für andere Hebel, schafft krisensichere lokale Arbeitsplätze.', caption: 'In der Praxis — Kreislaufwirtschaft (Hebel B07): Bestanden auf allen vier Achsen. Reduziert Abfall, senkt Materialkosten, schafft krisensichere lokale Arbeitsplätze.' },
+  { src: '/figures/kompass/slide-15.webp', alt: 'In der Praxis: Erneuerbare Energie (Hebel C11). Status Bestanden. Vier Vorteils-Kreise: dekarbonisiert das Energienetz, günstiger als fossile Alternativen, ermöglicht saubere Industrie und Mobilität, reduziert lokale Luftverschmutzung mit fairer Umschulung.', caption: 'In der Praxis — Erneuerbare Energie (Hebel C11): Dekarbonisiert das Energienetz und ermöglicht saubere Industrie. Reduziert Luftverschmutzung mit Auflage zur fairen Umschulung.' },
+  { src: '/figures/kompass/slide-16.webp', alt: 'In der Praxis: Das Kreislauf-Auto (Hebel I33). Status Bestanden. Vier Vorteils-Kreise: stoppt Materialverschwendung im Verkehr, niedrige Lebenszykluskosten durch Modularität, harmoniert mit neuen Biomaterialien, demokratisiert Mobilität und stärkt lokale Handwerkskultur.', caption: 'In der Praxis — Das Kreislauf-Auto (Hebel I33): Stoppt Materialverschwendung im Verkehr, demokratisiert Mobilität und stärkt lokale Handwerkskultur.' },
+  { src: '/figures/kompass/slide-17.webp', alt: 'Die Provolution-Formel. Vier Symbol-Bausteine als Gleichung: Kompass (objektive Auswahl) plus Netzwerk (systemische Vernetzung) plus Waage (soziale Gerechtigkeit) gleich Erdkugel (transformatives Potenzial: minus 58,6 Gt pro Jahr).', caption: 'Die Provolution-Formel: Objektive Auswahl + systemische Vernetzung + soziale Gerechtigkeit = transformatives Potenzial von −58,6 Gt CO₂eq/Jahr.' },
+  { src: '/figures/kompass/slide-18.webp', alt: 'Schluss-Bild: Eine sonnenbeschienene Straße führt durch eine grüne, nachhaltige Stadt. Schriftzug: Wir haben den Kompass.', caption: 'Wir haben den Kompass. Die Klimatransformation ist kein Rätselraten mehr — Provolution zeigt einen systematischen Weg, der objektiv, messbar und gerecht ist.' },
+];
+---
+<Base title="Kompass" description="Provolution-Climate-Compass: Eine Bilder-Reihenfolge, die das Framework in 18 Stationen erzählt — vom Problem über die SEC-J-Methodik bis zur Domänen-Karte und zum Gesamt-Potenzial.">
+  <section class="hero">
+    <div class="wrap">
+      <div class="tag">Climate Compass</div>
+      <h1>Der Kompass in Bildern</h1>
+      <p class="subtitle">Eine erzählerische Bildreihe in 18 Stationen — vom Dschungel der guten Ideen zum systematischen Framework, das alle Maßnahmen an vier Achsen prüft.</p>
+      <p class="note">
+        <strong>Anmerkung:</strong> Diese Präsentations-Reihe wurde mit Hilfe von NotebookLM generiert und stellt das Framework illustrativ dar. Für die wissenschaftliche Darstellung mit allen Werten, SSoT-Verweisen und Methodik-Details siehe <a href="/provolution">Framework</a> und <a href="/probatio-systemica">Methodik</a>. Aktuelle Kennzahlen sind autoritativ in <a href="https://github.com/yokadeeds-dev/Provolution/blob/main/canon/STATUS.md" rel="noopener" target="_blank"><code>canon/STATUS.md</code></a>.
+      </p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <ol class="kompass-list" aria-label="Provolution Climate Compass — 18 Stationen">
+      {slides.map((slide, i) => (
+        <li class="kompass-slide" id={`slide-${i + 1}`}>
+          <figure>
+            <img src={slide.src} alt={slide.alt} loading={i === 0 ? 'eager' : 'lazy'} width="1835" height="964" />
+            <figcaption>
+              <span class="slide-num">{String(i + 1).padStart(2, '0')} / 18</span>
+              <span class="slide-caption">{slide.caption}</span>
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ol>
+
+    <p style="margin-top: var(--space-5);"><a href="/provolution">Zur wissenschaftlichen Framework-Seite &rarr;</a></p>
+  </div>
+</Base>
+
+<style>
+  .kompass-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .kompass-slide {
+    margin: 0;
+  }
+
+  .kompass-slide figure {
+    margin: 0;
+    background: var(--bg-alt);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: var(--space-2);
+  }
+
+  .kompass-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+
+  .kompass-slide figcaption {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+    padding: 0 var(--space-1);
+    font-size: 0.95rem;
+    color: var(--fg);
+  }
+
+  .kompass-slide .slide-num {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .kompass-slide .slide-caption {
+    color: var(--fg);
+  }
+
+  @media (max-width: 600px) {
+    .kompass-slide figcaption {
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+  }
+</style>
